@@ -5,7 +5,7 @@ import max from 'lodash/max'
 import { NavLink } from 'react-router-dom'
 import BigNumber from 'bignumber.js'
 import { QuoteToken } from 'config/constants/types'
-import { useFarms, usePriceBnbBusd, usePriceCakeBusd, usePriceWethBusd } from 'state/hooks'
+import { useFarms, usePriceBnbBusd, usePriceCakeBusd } from 'state/hooks'
 
 const StyledFarmStakingCard = styled(Card)`
   margin-left: auto;
@@ -29,7 +29,7 @@ const EarnAPRCard = () => {
     const farms = useFarms()
     const cakePrice = usePriceCakeBusd()
     const bnbPrice = usePriceBnbBusd()
-    const wethPrice = usePriceWethBusd()
+    // const wethPrice = usePriceWethBusd()
 
     const highestApr = useMemo(() => {
         const aprs = farms
@@ -46,9 +46,10 @@ const EarnAPRCard = () => {
 
                     if (farm.quoteTokenSymbol === QuoteToken.BNB) {
                         totalValue = totalValue.times(bnbPrice);
-                    } else if (farm.quoteTokenSymbol === QuoteToken.WETH) {
-                        totalValue = totalValue.times(wethPrice);
                     }
+                    // else if (farm.quoteTokenSymbol === QuoteToken.WETH) {
+                    //     totalValue = totalValue.times(wethPrice);
+                    // }
 
                     if (totalValue.comparedTo(0) > 0) {
                         apy = apy.div(totalValue);
@@ -59,7 +60,7 @@ const EarnAPRCard = () => {
             })
         const maxApr = max(aprs)
         return maxApr
-    }, [cakePrice, bnbPrice, wethPrice, farms])
+    }, [cakePrice, bnbPrice, bnbPrice, farms])
 
     return (
         <StyledFarmStakingCard>
