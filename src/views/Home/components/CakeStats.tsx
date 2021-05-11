@@ -61,7 +61,7 @@ const CakeStats = () => {
         </Row>
         <Row>
           <Text fontSize="14px">Maximum Supply</Text>
-          <Text bold fontSize="14px">3,888,000</Text>
+          <Text bold fontSize="14px">52,000,000</Text>
         </Row>
       </CardBody>
     </StyledCakeStats>

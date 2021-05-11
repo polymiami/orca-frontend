@@ -1835,9 +1835,9 @@
     eslint-plugin-react "^7.21.5"
     eslint-plugin-react-hooks "^4.0.0"
 
-"@pancakeswap-libs/uikit@sherrbss/orcinus-ui":
+"@pancakeswap-libs/uikit@orcinuslabs/orca-ui":
   version "1.0.0"
-  resolved "https://codeload.github.com/sherrbss/orcinus-ui/tar.gz/18f2a81db63482f16af7c9d7e13a7788eef0e45d"
+  resolved "https://codeload.github.com/orcinuslabs/orca-ui/tar.gz/9c48b2ba36dadf3c2aee20a0ec4efef4d062d9d0"
   dependencies:
     "@types/lodash" "^4.14.162"
     "@types/styled-system" "^5.1.10"

@@ -26,21 +26,21 @@ const config: MenuEntry[] = [
     icon: 'InfoIcon',
     items: [
       {
-        label: 'QuickSwap Chart',
-        href: 'https://info.quickswap.exchange/token/X0x289B00930ab1C308f113c52F18e3B15036fB8BA8',
+        label: '$ORCA Chart',
+        href: 'https://info.quickswap.exchange/token/0x289B00930ab1C308f113c52F18e3B15036fB8BA8',
       },
       {
         label: 'Polygon Explorer',
-        href: 'https://explorer-mainnet.maticvigil.com/address/0x289B00930ab1C308f113c52F18e3B15036fB8BA8',
+        href: 'https://explorer-mainnet.maticvigil.com/tokens/0x289B00930ab1C308f113c52F18e3B15036fB8BA8',
       },
-      {
-        label: 'Dapp Radar',
-        href: 'https://dappradar.com/polygon/defi/orcinus-labs'
-      },
-      {
-        label: 'Dapp.com',
-        href: 'https://www.dapp.com/app/orcinus-labs'
-      }
+      // {
+      //   label: 'Dapp Radar',
+      //   href: 'https://dappradar.com/polygon/defi/orcinus-labs'
+      // },
+      // {
+      //   label: 'Dapp.com',
+      //   href: 'https://www.dapp.com/app/orcinus-labs'
+      // }
     ],
   },
   {

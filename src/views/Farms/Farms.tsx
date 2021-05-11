@@ -108,16 +108,10 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         }
       </Heading>
       <Heading as="h2" color="secondary" mb="50px" style={{ textAlign: 'center' }}>
-        50% of the Deposit Fee will be used to buyback ORCA and Burn the Tokens
+        Deposit Fees: 50% buyback and burn, 50% allocated to treasury wallet
       </Heading>
       <Heading as="h2" color="secondary" mb="50px" style={{ textAlign: 'center' }}>
-        Burn Time: Everyday 14:00 UTC
-      </Heading>
-      <Heading as="h2" color="secondary" mb="50px" style={{ textAlign: 'center' }}>
-        50% of the Deposit Fee will be sent to treasury wallet for Future Development (example, for Jungle pools)
-      </Heading>
-      <Heading as="h2" color="secondary" mb="50px" style={{ textAlign: 'center' }}>
-        Farms and Pools are live
+        Farms and Pools are live!
       </Heading>
       <FarmTabButtons stakedOnly={stakedOnly} setStakedOnly={setStakedOnly}/>
       <div>
