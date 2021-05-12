@@ -28,8 +28,8 @@ const farms: FarmConfig[] = [
     lpSymbol: 'ORCA - MATIC',
     lpAddresses: {
       97: '',
-      56: '0x8aC78f1a912507f868867BBEB5546C80973e58C0',
-      137: '0x8aC78f1a912507f868867BBEB5546C80973e58C0',
+      56: '0x542Bf9D37A9D0EA0b54428e1aEFC301B2970DA5c',
+      137: '0x542Bf9D37A9D0EA0b54428e1aEFC301B2970DA5c',
     },
     tokenSymbol: 'ORCA',
     tokenAddresses: {
