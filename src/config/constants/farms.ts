@@ -2,25 +2,25 @@ import contracts from './contracts'
 import { FarmConfig, QuoteToken } from './types'
 
 const farms: FarmConfig[] = [
-  {
-    pid: 0,
-    risk: 5,
-    isTokenOnly: false,
-    lpSymbol: 'ORCA - USDC',
-    lpAddresses: {
-      97: '',
-      56: '0x2a45b3109af6e47c3ffb1c3111f3e4c17a99158f',
-      137: '0x2a45b3109af6e47c3ffb1c3111f3e4c17a99158f',
-    },
-    tokenSymbol: 'ORCA',
-    tokenAddresses: {
-      97: '',
-      56: '0x289B00930ab1C308f113c52F18e3B15036fB8BA8',
-      137: '0x289B00930ab1C308f113c52F18e3B15036fB8BA8',
-    },
-    quoteTokenSymbol: QuoteToken.BUSD,
-    quoteTokenAdresses: contracts.busd,
-  },
+//   {
+//     pid: 0,
+//     risk: 5,
+//     isTokenOnly: false,
+//     lpSymbol: 'ORCA - USDC',
+//     lpAddresses: {
+//       97: '',
+//       56: '0x2a45b3109af6e47c3ffb1c3111f3e4c17a99158f',
+//       137: '0x2a45b3109af6e47c3ffb1c3111f3e4c17a99158f',
+//     },
+//     tokenSymbol: 'ORCA',
+//     tokenAddresses: {
+//       97: '',
+//       56: '0x289B00930ab1C308f113c52F18e3B15036fB8BA8',
+//       137: '0x289B00930ab1C308f113c52F18e3B15036fB8BA8',
+//     },
+//     quoteTokenSymbol: QuoteToken.BUSD,
+//     quoteTokenAdresses: contracts.busd,
+//   },
   {
     pid: 14,
     risk: 5,
@@ -40,25 +40,25 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
   },
-  {
-    pid: 11,
-    risk: 5,
-    isTokenOnly: false,
-    lpSymbol: 'ORCA - USDT',
-    lpAddresses: {
-      97: '',
-      56: '0x7a2642EDE1851649aa89dBaEbC8eF21044450288',
-      137: '0x7a2642EDE1851649aa89dBaEbC8eF21044450288',
-    },
-    tokenSymbol: 'ORCA',
-    tokenAddresses: {
-      97: '',
-      56: '0x289B00930ab1C308f113c52F18e3B15036fB8BA8',
-      137: '0x289B00930ab1C308f113c52F18e3B15036fB8BA8',
-    },
-    quoteTokenSymbol: QuoteToken.USDT,
-    quoteTokenAdresses: contracts.usdt,
-  },
+//   {
+//     pid: 11,
+//     risk: 5,
+//     isTokenOnly: false,
+//     lpSymbol: 'ORCA - USDT',
+//     lpAddresses: {
+//       97: '',
+//       56: '0x7a2642EDE1851649aa89dBaEbC8eF21044450288',
+//       137: '0x7a2642EDE1851649aa89dBaEbC8eF21044450288',
+//     },
+//     tokenSymbol: 'ORCA',
+//     tokenAddresses: {
+//       97: '',
+//       56: '0x289B00930ab1C308f113c52F18e3B15036fB8BA8',
+//       137: '0x289B00930ab1C308f113c52F18e3B15036fB8BA8',
+//     },
+//     quoteTokenSymbol: QuoteToken.USDT,
+//     quoteTokenAdresses: contracts.usdt,
+//   },
   // {
   //   pid: 13,
   //   risk: 5,
