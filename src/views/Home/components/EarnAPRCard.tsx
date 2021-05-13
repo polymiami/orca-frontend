@@ -29,7 +29,6 @@ const EarnAPRCard = () => {
     const farms = useFarms()
     const cakePrice = usePriceCakeBusd()
     const bnbPrice = usePriceBnbBusd()
-    const wethPrice = usePriceBnbBusd()
 
     const highestApr = useMemo(() => {
         const aprs = farms
@@ -46,8 +45,6 @@ const EarnAPRCard = () => {
 
                     if (farm.quoteTokenSymbol === QuoteToken.BNB) {
                         totalValue = totalValue.times(bnbPrice);
-                    } else if (farm.quoteTokenSymbol === QuoteToken.WETH) {
-                        totalValue = totalValue.times(wethPrice);
                     }
 
                     if (totalValue.comparedTo(0) > 0) {
@@ -59,7 +56,7 @@ const EarnAPRCard = () => {
             })
         const maxApr = max(aprs)
         return maxApr
-    }, [cakePrice, bnbPrice, wethPrice, farms])
+    }, [cakePrice, bnbPrice, farms])
 
     return (
         <StyledFarmStakingCard>

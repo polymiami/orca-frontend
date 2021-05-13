@@ -9,7 +9,7 @@ const config: MenuEntry[] = [
   {
     label: 'Buy ORCA',
     icon: 'TradeIcon',
-    href: 'https://quickswap.exchange/#/swap?outputCurrency=0x289B00930ab1C308f113c52F18e3B15036fB8BA8'
+    href: 'https://quickswap.exchange/#/swap?outputCurrency=0xC22dA91b0eaa33B88f67F543460E56f789ade50b'
   },
   {
     label: 'Farms',
@@ -27,11 +27,11 @@ const config: MenuEntry[] = [
     items: [
       {
         label: '$ORCA Chart',
-        href: 'https://info.quickswap.exchange/token/0x289B00930ab1C308f113c52F18e3B15036fB8BA8',
+        href: 'https://info.quickswap.exchange/token/0xC22dA91b0eaa33B88f67F543460E56f789ade50b',
       },
       {
         label: 'Polygon Explorer',
-        href: 'https://explorer-mainnet.maticvigil.com/tokens/0x289B00930ab1C308f113c52F18e3B15036fB8BA8',
+        href: 'https://explorer-mainnet.maticvigil.com/tokens/0xC22dA91b0eaa33B88f67F543460E56f789ade50b',
       },
       // {
       //   label: 'Dapp Radar',
