@@ -33,10 +33,10 @@ const config: MenuEntry[] = [
         label: 'Polygon Explorer',
         href: 'https://explorer-mainnet.maticvigil.com/tokens/0xC22dA91b0eaa33B88f67F543460E56f789ade50b',
       },
-      // {
-      //   label: 'Dapp Radar',
-      //   href: 'https://dappradar.com/polygon/defi/orcinus-labs'
-      // },
+      {
+        label: 'Dapp Radar',
+        href: 'https://dappradar.com/polygon/social/orcinus-labs'
+      },
       // {
       //   label: 'Dapp.com',
       //   href: 'https://www.dapp.com/app/orcinus-labs'
