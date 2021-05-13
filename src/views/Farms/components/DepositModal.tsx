@@ -18,7 +18,14 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
   const [val, setVal] = useState('')
   const [pendingTx, setPendingTx] = useState(false)
   const TranslateString = useI18n()
+
+  // Use 6 decimals when dealing with tokens denominated in USD
+  const numDecimals = (tokenName === 'USDT' || tokenName === 'USDC') ? 6 : 18;
   const fullBalance = useMemo(() => {
+    return getFullDisplayBalance(max, numDecimals)
+  }, [max, numDecimals])
+  
+  useMemo(() => {
     return getFullDisplayBalance(max)
   }, [max])
 
