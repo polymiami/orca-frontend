@@ -34,7 +34,8 @@ const NotFound = () => {
     <Page>
       <StyledNotFound>
         <LogoIcon width="64px" mb="8px" />
-        <LinkExternal href='https://quickswap.exchange/#/swap?outputCurrency=0x289B00930ab1C308f113c52F18e3B15036fB8BA8'>BUY ORCA!</LinkExternal>
+        {/* <LinkExternal href='https://quickswap.exchange/#/swap?outputCurrency=0xC22dA91b0eaa33B88f67F543460E56f789ade50b'>BUY ORCA!</LinkExternal> */}
+        <LinkExternal href='https://quickswap.exchange/#/swap?outputCurrency=0xC22dA91b0eaa33B88f67F543460E56f789ade50b'>BUY ORCA!</LinkExternal>
       </StyledNotFound>
     </Page>
   )
