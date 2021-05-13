@@ -79,7 +79,7 @@ const farms: FarmConfig[] = [
   //   quoteTokenAdresses: contracts.busd,
   // },
   {
-    pid: 9,
+    pid: 15,
     risk: 5,
     isTokenOnly: true,
     lpSymbol: 'ORCA',
@@ -98,7 +98,7 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.busd,
   },
   {
-    pid: 10,
+    pid: 16,
     isTokenOnly: true,
     risk: 3,
     lpSymbol: 'USDC',
@@ -117,7 +117,7 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.busd,
   },
   {
-    pid: 8,
+    pid: 7,
     isTokenOnly: true,
     risk: 3,
     lpSymbol: 'WMATIC',
@@ -136,7 +136,7 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.busd,
   },
   {
-    pid: 14,
+    pid: 18,
     isTokenOnly: true,
     risk: 3,
     lpSymbol: 'WMATIC',
@@ -155,7 +155,7 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.busd,
   },
   {
-    pid: 11,
+    pid: 19,
     isTokenOnly: true,
     risk: 3,
     lpSymbol: 'USDT',
@@ -174,7 +174,7 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.busd,
   },
   {
-    pid: 12,
+    pid: 20,
     isTokenOnly: true,
     risk: 3,
     lpSymbol: 'WBTC',
@@ -193,7 +193,7 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.busd,
   },
   {
-    pid: 13,
+    pid: 21,
     isTokenOnly: true,
     risk: 3,
     lpSymbol: 'WETH',
