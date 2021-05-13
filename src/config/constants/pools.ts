@@ -1,23 +1,24 @@
 import { PoolConfig, QuoteToken, PoolCategory } from './types'
 
-const pools: PoolConfig[] = [
-  // {
-  //   sousId: 0,
-  //   tokenName: 'CAKE',
-  //   stakingTokenName: QuoteToken.CAKE,
-  //   stakingTokenAddress: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
-  //   contractAddress: {
-  //     97: '0xd3af5fe61dbaf8f73149bfcfa9fb653ff096029a',
-  //     56: '0x73feaa1eE314F8c655E354234017bE2193C9E24E',
-  //   },
-  //   poolCategory: PoolCategory.CORE,
-  //   projectLink: 'https://pancakeswap.finance/',
-  //   harvest: true,
-  //   tokenPerBlock: '10',
-  //   sortOrder: 1,
-  //   isFinished: false,
-  //   tokenDecimals: 18,
-  // },
+const pools: PoolConfig[] = [  
+  {
+    sousId: 0,
+    tokenName: 'WMATIC',
+    stakingTokenName: QuoteToken.BUSD,
+    stakingTokenAddress: '0xC22dA91b0eaa33B88f67F543460E56f789ade50b',
+    contractAddress: {
+      97: '0xcf4ea07D7a6B36966d9214A7649bbf9eFbA70037',
+      56: '0xcf4ea07D7a6B36966d9214A7649bbf9eFbA70037',
+      137: '0xcf4ea07D7a6B36966d9214A7649bbf9eFbA70037',
+    },
+    poolCategory: PoolCategory.CORE,
+    projectLink: 'https://pancakeswap.finance/',
+    harvest: true,
+    tokenPerBlock: '1',
+    sortOrder: 1,
+    isFinished: false,
+    tokenDecimals: 18,
+  },
   // {
   //   sousId: 1,
   //   tokenName: 'TWT',
