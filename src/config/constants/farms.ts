@@ -116,6 +116,25 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
   },
+  {
+    pid: 29,
+    isTokenOnly: true,
+    risk: 3,
+    lpSymbol: 'SUSHI',
+    lpAddresses: {
+      97: '',
+      56: '0xe15e9d2a5af5c1d3524bbc594ddc4a7d80ad27cd',
+      137: '0xe15e9d2a5af5c1d3524bbc594ddc4a7d80ad27cd', // SUSHI - USDC
+    },
+    tokenSymbol: 'SUSHI',
+    tokenAddresses: {
+      97: '',
+      56: '0x0b3F868E0BE5597D5DB7fEB59E1CADBb0fdDa50a',
+      137: '0x0b3F868E0BE5597D5DB7fEB59E1CADBb0fdDa50a', // SUSHI
+    },
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
+  },
   // {
   //   pid: 7,
   //   isTokenOnly: true,

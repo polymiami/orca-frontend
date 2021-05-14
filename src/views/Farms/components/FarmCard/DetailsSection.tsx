@@ -48,16 +48,24 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
   const TranslateString = useI18n()
   const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAdresses, quoteTokenSymbol, tokenAddresses })
 
+  // console.log('details', isTokenOnly, bscScanAddress, removed, lpLabel, quoteTokenAdresses, quoteTokenSymbol, tokenAddresses)
+
+  let tokenURL;
+  if (isTokenOnly) {
+    if (lpLabel === 'SUSHI') {
+      tokenURL = 'https://app.sushi.com/swap?outputCurrency=0x0b3F868E0BE5597D5DB7fEB59E1CADBb0fdDa50a'
+    } else {
+      tokenURL = `https://quickswap.exchange/#/swap/${tokenAddresses[process.env.REACT_APP_CHAIN_ID]}`
+    }
+  } else {
+    tokenURL = `https://quickswap.exchange/#/add/${liquidityUrlPathParts}`
+  }
+
   return (
     <Wrapper>
       <Flex justifyContent="space-between">
         <Text>{TranslateString(316, 'Stake')}:</Text>
-        <StyledLinkExternal href={
-          isTokenOnly ?
-            `https://quickswap.exchange/#/swap/${tokenAddresses[process.env.REACT_APP_CHAIN_ID]}`
-            :
-            `https://quickswap.exchange/#/add/${liquidityUrlPathParts}`
-        }>
+        <StyledLinkExternal href={tokenURL}>
           {lpLabel}
         </StyledLinkExternal>
       </Flex>
