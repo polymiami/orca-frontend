@@ -20,7 +20,14 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
   const TranslateString = useI18n()
 
   // Use 6 decimals when dealing with tokens denominated in USD
-  const numDecimals = (tokenName === 'USDT' || tokenName === 'USDC') ? 6 : 18;
+  // const numDecimals = (tokenName === 'USDT' || tokenName === 'USDC') ? 6 : (tokenName === 'WBTC') ? 8 : 18;
+  let numDecimals = 18;
+  if (tokenName === 'USDT' || tokenName === 'USDC') {
+    numDecimals = 6;
+  } 
+  // else if (tokenName === 'WBTC') {
+  //   numDecimals = 8;
+  // }
   const fullBalance = useMemo(() => {
     return getFullDisplayBalance(max, numDecimals)
   }, [max, numDecimals])
@@ -36,6 +43,19 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
     setVal(fullBalance)
   }, [fullBalance, setVal])
 
+  // hacky but need to normalize this value before submitting
+  const handleSubmissionParsing = () => {
+    if (tokenName === 'USDT' || tokenName === 'USDC') {
+      return (new BigNumber(parseInt(val)).div(1000000000000)).toString()
+    } 
+    
+    // if (tokenName === 'WBTC') {
+    //   return (new BigNumber(parseInt(val)).div(10000000000)).toString()
+    // }  
+
+    return val
+  }
+  
   return (
     <Modal title={`${TranslateString(316, 'Deposit')} ${tokenName} Tokens`} onDismiss={onDismiss}>
       <TokenInput
@@ -54,11 +74,7 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
           disabled={pendingTx}
           onClick={async () => {
             setPendingTx(true)
-            await onConfirm((tokenName === 'USDT' || tokenName === 'USDC') ? (
-              (parseInt(val) / 1000000000000).toString() // hacky, but need to normalize this value before submitting
-            ) : 
-              val
-            )
+            await onConfirm(handleSubmissionParsing())
             setPendingTx(false)
             onDismiss()
           }}

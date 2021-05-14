@@ -29,7 +29,14 @@ const StakeAction: React.FC<FarmCardActionsProps> = ({ stakedBalance, tokenBalan
   const { onStake } = useStake(pid)
   const { onUnstake } = useUnstake(pid)
 
-  const numDecimals = (tokenName === 'USDT' || tokenName === 'USDC') ? 6 : 18;
+  let numDecimals = 18;
+  if (tokenName === 'USDT' || tokenName === 'USDC') {
+    numDecimals = 6;
+  } 
+  // else if (tokenName === 'WBTC') {
+  //   numDecimals = 8;
+  // }
+  // const numDecimals = (tokenName === 'USDT' || tokenName === 'USDC') ? 6 : 18;
   const rawStakedBalance = getBalanceNumber(stakedBalance, numDecimals)
   const displayBalance = rawStakedBalance.toLocaleString()
 
