@@ -24,10 +24,6 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
   const fullBalance = useMemo(() => {
     return getFullDisplayBalance(max, numDecimals)
   }, [max, numDecimals])
-  
-  useMemo(() => {
-    return getFullDisplayBalance(max)
-  }, [max])
 
   const handleChange = useCallback(
     (e: React.FormEvent<HTMLInputElement>) => {
@@ -58,7 +54,11 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
           disabled={pendingTx}
           onClick={async () => {
             setPendingTx(true)
-            await onConfirm(val)
+            await onConfirm((tokenName === 'USDT' || tokenName === 'USDC') ? (
+              (parseInt(val) / 1000000000000).toString() // hacky, but need to normalize this value before submitting
+            ) : 
+              val
+            )
             setPendingTx(false)
             onDismiss()
           }}
