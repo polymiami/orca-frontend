@@ -25,8 +25,8 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const { path } = useRouteMatch()
   const TranslateString = useI18n()
   const farmsLP = useFarms()
-  const cakePrice = usePriceCakeBusd()
-  const bnbPrice = usePriceBnbBusd()
+  const cakePrice = usePriceCakeBusd()      // ORCA-USDT PRICE
+  const bnbPrice = usePriceBnbBusd()        // MATIC-USDT PRICE
   const { account, ethereum }: { account: string; ethereum: provider } = useWallet()
   const {tokenMode} = farmsProps;
 
@@ -74,6 +74,8 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
 
         if (farm.quoteTokenSymbol === QuoteToken.BNB) {
           totalValue = totalValue.times(bnbPrice);
+        } else if (farm.quoteTokenSymbol === QuoteToken.CAKE) {
+          totalValue = totalValue.times(cakePrice);
         }
 
         if(totalValue.comparedTo(0) > 0){

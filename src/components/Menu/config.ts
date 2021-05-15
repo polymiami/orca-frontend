@@ -37,10 +37,10 @@ const config: MenuEntry[] = [
         label: 'Dapp Radar',
         href: 'https://dappradar.com/polygon/social/orcinus-labs'
       },
-      // {
-      //   label: 'Dapp.com',
-      //   href: 'https://www.dapp.com/app/orcinus-labs'
-      // }
+      {
+        label: 'Dapp.com',
+        href: 'https://www.dapp.com/app/orcinus-labs'
+      }
     ],
   },
   {

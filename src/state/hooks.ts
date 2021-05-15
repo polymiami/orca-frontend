@@ -66,30 +66,37 @@ export const usePoolFromPid = (sousId): Pool => {
   return pool
 }
 
-// Prices
-
+/*
+ * Generate prices.
+ */
 export const usePriceBnbBusd = (): BigNumber => {
-  // const pid = 4 // BUSD-BNB LP
   const pid = 25 // WMATIC-USDC LP
   const farm = useFarmFromPid(pid)
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO
 }
 
 export const usePriceCakeBusd = (): BigNumber => {
-  // const pid = 1 // CAKE-BNB LP
-  // const bnbPriceUSD = usePriceBnbBusd()
-  // const farm = useFarmFromPid(pid)
-  // return farm.tokenPriceVsQuote ? bnbPriceUSD.times(farm.tokenPriceVsQuote) : ZERO
-  // const pid = 5; // EGG-BUSD LP
+
   const pid = 4; // ORCA-WMATIC LP
   const farm = useFarmFromPid(pid);
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO;
 }
 
+export const usePriceWethBusd = (): BigNumber => {
+  const pid = 28; // WETH-BUSD LP
+  const farm = useFarmFromPid(pid);
+  console.log("usePriceWethBusd", farm.lpSymbol, farm.tokenSymbol, farm.lpAddresses, farm.tokenAddresses);
+  return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO;
+}
+
 export const useTotalValue = (): BigNumber => {
   const farms = useFarms();
+
+  // Get prices
   const bnbPrice = usePriceBnbBusd();
   const cakePrice = usePriceCakeBusd();
+  const wethPrice = usePriceWethBusd();
+
   let value = new BigNumber(0);
   for (let i = 0; i < farms.length; i++) {
     const farm = farms[i]
@@ -97,8 +104,11 @@ export const useTotalValue = (): BigNumber => {
       let val;
       if (farm.quoteTokenSymbol === QuoteToken.BNB) {
         val = (bnbPrice.times(farm.lpTotalInQuoteToken));
-      }else if (farm.quoteTokenSymbol === QuoteToken.CAKE) {
+      } else if (farm.quoteTokenSymbol === QuoteToken.CAKE) {
         val = (cakePrice.times(farm.lpTotalInQuoteToken));
+      } 
+      else if (farm.quoteTokenSymbol === QuoteToken.WETH) {
+        val = (wethPrice.times(farm.lpTotalInQuoteToken));
       }
       // else if (farm.quoteTokenSymbol === QuoteToken.BUSD) {
       //  val = (cakePrice.times(farm.lpTotalInQuoteToken));

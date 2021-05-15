@@ -51,7 +51,7 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
     
     // if (tokenName === 'WBTC') {
     //   return (new BigNumber(parseInt(val)).div(10000000000)).toString()
-    // }  
+    // } 
 
     return val
   }

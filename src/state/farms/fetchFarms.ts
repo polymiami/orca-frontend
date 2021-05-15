@@ -67,13 +67,16 @@ const fetchFarms = async () => {
       //   tokenDecimals,farmConfig
       // )
         tokenAmount = new BigNumber(lpTokenBalanceMC).div(new BigNumber(10).pow(6));
-        if(farmConfig.tokenSymbol === QuoteToken.BUSD && farmConfig.quoteTokenSymbol === QuoteToken.BUSD){
+        if (farmConfig.tokenSymbol === QuoteToken.BUSD && farmConfig.quoteTokenSymbol === QuoteToken.BUSD){
           tokenPriceVsQuote = new BigNumber(1);
-        }else{
+        } 
+        else{
           tokenPriceVsQuote = new BigNumber(quoteTokenBlanceLP).div(new BigNumber(tokenBalanceLP));
         }
+
         lpTotalInQuoteToken = tokenAmount.times(tokenPriceVsQuote);
-      }else{
+        // console.log("tokenPriceVsQuote", `${farmConfig.tokenSymbol} || ${farmConfig.quoteTokenSymbol}`, `${tokenAmount} * ${tokenPriceVsQuote} = ${lpTotalInQuoteToken}`, quoteTokenBlanceLP.toString(), tokenBalanceLP.toString())
+      } else {
         // Ratio in % a LP tokens that are in staking, vs the total number in circulation
         const lpTokenRatio = new BigNumber(lpTokenBalanceMC).div(new BigNumber(lpTotalSupply))
 
