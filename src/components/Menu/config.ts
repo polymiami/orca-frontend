@@ -27,7 +27,7 @@ const config: MenuEntry[] = [
     items: [
       {
         label: '$ORCA Chart',
-        href: 'https://info.quickswap.exchange/token/0xC22dA91b0eaa33B88f67F543460E56f789ade50b',
+        href: 'https://quickchart.app/token/0xC22dA91b0eaa33B88f67F543460E56f789ade50b',
       },
       {
         label: 'Polygon Explorer',
