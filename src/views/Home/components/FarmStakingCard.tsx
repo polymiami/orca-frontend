@@ -7,11 +7,11 @@ import BigNumber from 'bignumber.js/bignumber'
 import { useAllHarvest } from 'hooks/useHarvest'
 import useFarmsWithBalance from 'hooks/useFarmsWithBalance'
 import UnlockButton from 'components/UnlockButton'
-import CakeHarvestBalance from './CakeHarvestBalance'
-import CakeWalletBalance from './CakeWalletBalance'
+import OrcaHarvestBalance from './OrcaHarvestBalance'
+import OrcaWalletBalance from './OrcaWalletBalance'
 import useAllEarnings from '../../../hooks/useAllEarnings'
 import { usePriceOrcaUsdc } from '../../../state/hooks'
-import { getCakeAddress } from '../../../utils/addressHelpers'
+import { getOrcaAddress } from '../../../utils/addressHelpers'
 import useTokenBalance from '../../../hooks/useTokenBalance'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 
@@ -44,7 +44,7 @@ const FarmedStakingCard = () => {
   const { account } = useWallet()
   const TranslateString = useI18n()
   const farmsWithBalance = useFarmsWithBalance()
-  const cakeBalance = getBalanceNumber(useTokenBalance(getCakeAddress()))
+  const cakeBalance = getBalanceNumber(useTokenBalance(getOrcaAddress()))
   const eggPrice = usePriceOrcaUsdc().toNumber()
   const earningsSum = farmsWithBalance.reduce((accum, farm) => {
     return accum + new BigNumber(farm.balance).div(new BigNumber(10).pow(18)).toNumber()
@@ -73,12 +73,12 @@ const FarmedStakingCard = () => {
         <CardImage src="/images/egg/2.png" alt="cake logo" width={64} height={64} />
         <Block>
           <Label>{TranslateString(544, 'ORCA to Harvest')}</Label>
-          <CakeHarvestBalance earningsSum={earningsSum}/>
+          <OrcaHarvestBalance earningsSum={earningsSum}/>
           <Label>~${(eggPrice * earningsSum).toFixed(2)}</Label>
         </Block>
         <Block>
           <Label>{TranslateString(546, 'ORCA in Wallet')}</Label>
-          <CakeWalletBalance cakeBalance={cakeBalance} />
+          <OrcaWalletBalance cakeBalance={cakeBalance} />
           <Label>~${(eggPrice * cakeBalance).toFixed(2)}</Label>
         </Block>
         <Actions>

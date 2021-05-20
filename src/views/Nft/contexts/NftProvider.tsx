@@ -2,10 +2,10 @@ import React, { createContext, ReactNode, useEffect, useRef, useState } from 're
 import BigNumber from 'bignumber.js'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import useBlock from 'hooks/useBlock'
-import rabbitmintingfarm from 'config/abi/rabbitmintingfarm.json'
-import { RABBIT_MINTING_FARM_ADDRESS } from 'config/constants/nfts'
+import nftmintingfarm from 'config/abi/nftmintingfarm.json'
+import { NFT_MINTING_FARM_ADDRESS } from 'config/constants/nfts'
 import multicall from 'utils/multicall'
-import { getPancakeRabbitContract } from '../utils/contracts'
+import { getNFTContract } from '../utils/contracts'
 
 interface NftProviderProps {
   children: ReactNode
@@ -65,12 +65,12 @@ const NftProvider: React.FC<NftProviderProps> = ({ children }) => {
           countBunniesBurntArr,
           totalSupplyDistributedArr,
           currentDistributedSupplyArr,
-        ] = await multicall(rabbitmintingfarm, [
-          { address: RABBIT_MINTING_FARM_ADDRESS, name: 'startBlockNumber' },
-          { address: RABBIT_MINTING_FARM_ADDRESS, name: 'endBlockNumber' },
-          { address: RABBIT_MINTING_FARM_ADDRESS, name: 'countBunniesBurnt' },
-          { address: RABBIT_MINTING_FARM_ADDRESS, name: 'totalSupplyDistributed' },
-          { address: RABBIT_MINTING_FARM_ADDRESS, name: 'currentDistributedSupply' },
+        ] = await multicall(nftmintingfarm, [
+          { address: NFT_MINTING_FARM_ADDRESS, name: 'startBlockNumber' },
+          { address: NFT_MINTING_FARM_ADDRESS, name: 'endBlockNumber' },
+          { address: NFT_MINTING_FARM_ADDRESS, name: 'countBunniesBurnt' },
+          { address: NFT_MINTING_FARM_ADDRESS, name: 'totalSupplyDistributed' },
+          { address: NFT_MINTING_FARM_ADDRESS, name: 'currentDistributedSupply' },
         ])
 
         // TODO: Figure out why these are coming back as arrays
@@ -101,12 +101,12 @@ const NftProvider: React.FC<NftProviderProps> = ({ children }) => {
   useEffect(() => {
     const fetchContractData = async () => {
       try {
-        const pancakeRabbitsContract = getPancakeRabbitContract()
-        const [canClaimArr, hasClaimedArr] = await multicall(rabbitmintingfarm, [
-          { address: RABBIT_MINTING_FARM_ADDRESS, name: 'canClaim', params: [account] },
-          { address: RABBIT_MINTING_FARM_ADDRESS, name: 'hasClaimed', params: [account] },
+        const nftContract = getNFTContract()
+        const [canClaimArr, hasClaimedArr] = await multicall(nftmintingfarm, [
+          { address: NFT_MINTING_FARM_ADDRESS, name: 'canClaim', params: [account] },
+          { address: NFT_MINTING_FARM_ADDRESS, name: 'hasClaimed', params: [account] },
         ])
-        const balanceOf = await pancakeRabbitsContract.methods.balanceOf(account).call()
+        const balanceOf = await nftContract.methods.balanceOf(account).call()
         const [canClaim]: [boolean] = canClaimArr
         const [hasClaimed]: [boolean] = hasClaimedArr
 
@@ -117,8 +117,8 @@ const NftProvider: React.FC<NftProviderProps> = ({ children }) => {
         if (balanceOf > 0) {
           const getTokenIdAndBunnyId = async (index: number) => {
             try {
-              const tokenId = await pancakeRabbitsContract.methods.tokenOfOwnerByIndex(account, index).call()
-              const bunnyId = await pancakeRabbitsContract.methods.getBunnyId(tokenId).call()
+              const tokenId = await nftContract.methods.tokenOfOwnerByIndex(account, index).call()
+              const bunnyId = await nftContract.methods.getBunnyId(tokenId).call()
 
               return [parseInt(bunnyId, 10), parseInt(tokenId, 10)]
             } catch (error) {

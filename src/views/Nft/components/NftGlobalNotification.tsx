@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import { Button, Heading, Modal, useModal } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
-import rabbitmintingfarm from 'config/abi/rabbitmintingfarm.json'
-import { RABBIT_MINTING_FARM_ADDRESS } from 'config/constants/nfts'
+import nftmintingfarm from 'config/abi/nftmintingfarm.json'
+import { NFT_MINTING_FARM_ADDRESS } from 'config/constants/nfts'
 import multicall from 'utils/multicall'
 
 interface NftYouWonModalProps {
@@ -53,12 +53,12 @@ const NftGlobalNotification = () => {
   useEffect(() => {
     const checkNftStatus = async () => {
       const [totalSupplyDistributedArr, currentDistributedSupplyArr, canClaimArr, hasClaimedArr] = await multicall(
-        rabbitmintingfarm,
+        nftmintingfarm,
         [
-          { address: RABBIT_MINTING_FARM_ADDRESS, name: 'totalSupplyDistributed' },
-          { address: RABBIT_MINTING_FARM_ADDRESS, name: 'currentDistributedSupply' },
-          { address: RABBIT_MINTING_FARM_ADDRESS, name: 'canClaim', params: [account] },
-          { address: RABBIT_MINTING_FARM_ADDRESS, name: 'hasClaimed', params: [account] },
+          { address: NFT_MINTING_FARM_ADDRESS, name: 'totalSupplyDistributed' },
+          { address: NFT_MINTING_FARM_ADDRESS, name: 'currentDistributedSupply' },
+          { address: NFT_MINTING_FARM_ADDRESS, name: 'canClaim', params: [account] },
+          { address: NFT_MINTING_FARM_ADDRESS, name: 'hasClaimed', params: [account] },
         ],
       )
 

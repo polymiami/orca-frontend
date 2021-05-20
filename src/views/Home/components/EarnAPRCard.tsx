@@ -27,8 +27,8 @@ const CardMidContent = styled(Heading).attrs({ size: 'xl' })`
 `
 const EarnAPRCard = () => {
     const farms = useFarms()
-    const cakePrice = usePriceOrcaUsdc()
-    const bnbPrice = usePriceMaticUsdc()
+    const orcaPrice = usePriceOrcaUsdc()
+    const maticPrice = usePriceMaticUsdc()
 
     const highestApr = useMemo(() => {
         const aprs = farms
@@ -40,11 +40,11 @@ const EarnAPRCard = () => {
                     const cakeRewardPerBlock = new BigNumber(farm.orcaPerBlock || 3).times(new BigNumber(farm.poolWeight)).div(new BigNumber(10).pow(18))
                     const cakeRewardPerYear = cakeRewardPerBlock.times(BLOCKS_PER_YEAR)
 
-                    let apy = cakePrice.times(cakeRewardPerYear);
+                    let apy = orcaPrice.times(cakeRewardPerYear);
                     let totalValue = new BigNumber(farm.lpTotalInQuoteToken || 0);
 
                     if (farm.quoteTokenSymbol === QuoteToken.WMATIC) {
-                        totalValue = totalValue.times(bnbPrice);
+                        totalValue = totalValue.times(maticPrice);
                     }
 
                     if (totalValue.comparedTo(0) > 0) {
@@ -56,7 +56,7 @@ const EarnAPRCard = () => {
             })
         const maxApr = max(aprs)
         return maxApr
-    }, [cakePrice, bnbPrice, farms])
+    }, [orcaPrice, maticPrice, farms])
 
     return (
         <StyledFarmStakingCard>

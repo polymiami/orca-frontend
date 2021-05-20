@@ -5,11 +5,11 @@ import styled from 'styled-components'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { useTotalSupply, useBurnedBalance } from 'hooks/useTokenBalance'
 import useI18n from 'hooks/useI18n'
-import { getCakeAddress } from 'utils/addressHelpers'
+import { getOrcaAddress } from 'utils/addressHelpers'
 import CardValue from './CardValue'
 import { useFarms, usePriceOrcaUsdc } from '../../../state/hooks'
 
-const StyledCakeStats = styled(Card)`
+const StyledOrcaStats = styled(Card)`
   margin-left: auto;
   margin-right: auto;
 `
@@ -22,15 +22,15 @@ const Row = styled.div`
   margin-bottom: 8px;
 `
 
-const CakeStats = () => {
+const OrcaStats = () => {
   const TranslateString = useI18n()
   const totalSupply = useTotalSupply()
-  const burnedBalance = useBurnedBalance(getCakeAddress())
+  const burnedBalance = useBurnedBalance(getOrcaAddress())
   const farms = useFarms();
-  const eggPrice = usePriceOrcaUsdc();
+  const orcaPrice = usePriceOrcaUsdc();
   const circSupply = totalSupply ? totalSupply.minus(burnedBalance) : new BigNumber(0);
-  const cakeSupply = getBalanceNumber(circSupply);
-  const marketCap = eggPrice.times(circSupply);
+  const orcaSupply = getBalanceNumber(circSupply);
+  const marketCap = orcaPrice.times(circSupply);
 
   let orcaPerBlock = 0;
   if(farms && farms[0] && farms[0].orcaPerBlock){
@@ -38,14 +38,14 @@ const CakeStats = () => {
   }
 
   return (
-    <StyledCakeStats>
+    <StyledOrcaStats>
       <CardBody>
         <Heading size="xl" mb="24px">
           {TranslateString(534, 'ORCA Stats')}
         </Heading>
         <Row>
           <Text fontSize="14px">{TranslateString(536, 'Total ORCA Supply')}</Text>
-          {cakeSupply && <CardValue fontSize="14px" value={cakeSupply} decimals={0} />}
+          {orcaSupply && <CardValue fontSize="14px" value={orcaSupply} decimals={0} />}
         </Row>
         <Row>
           <Text fontSize="14px">{TranslateString(999, 'Market Cap')}</Text>
@@ -64,8 +64,8 @@ const CakeStats = () => {
           <Text bold fontSize="14px">3,300,000</Text>
         </Row>
       </CardBody>
-    </StyledCakeStats>
+    </StyledOrcaStats>
   )
 }
 
-export default CakeStats
+export default OrcaStats

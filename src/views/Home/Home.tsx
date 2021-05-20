@@ -6,9 +6,8 @@ import useI18n from 'hooks/useI18n'
 import Page from 'components/layout/Page'
 import FarmStakingCard from './components/FarmStakingCard'
 import rot13 from '../../utils/encode'
-// import LotteryCard from './components/LotteryCard'
 import { isAddress } from '../../utils/web3'
-import CakeStats from './components/CakeStats'
+import OrcaStats from './components/OrcaStats'
 import TotalValueLockedCard from './components/TotalValueLockedCard'
 import TwitterCard from './components/TwitterCard'
 import EarnAPRCard from './components/EarnAPRCard'
@@ -112,7 +111,7 @@ const Home: React.FC = () => {
                     <WinCard />                 {/* Buy $ORCA */}
                 </CTACards>
                 <Cards>
-                    <CakeStats />               {/* $ORCA statistics */}
+                    <OrcaStats />               {/* $ORCA statistics */}
                     <TotalValueLockedCard />    {/* Total value locked */}
                 </Cards>
             </div>

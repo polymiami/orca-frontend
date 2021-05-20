@@ -4,8 +4,8 @@ import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { Button, Checkbox, Modal, Text } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
 import { Nft } from 'config/constants/types'
-import { RABBIT_MINTING_FARM_ADDRESS } from 'config/constants/nfts'
-import { useRabbitMintingFarm } from 'hooks/useContract'
+import { NFT_MINTING_FARM_ADDRESS } from 'config/constants/nfts'
+import { useNFTMintingFarm } from 'hooks/useContract'
 import InfoRow from './InfoRow'
 
 interface BurnNftModalProps {
@@ -35,13 +35,13 @@ const BurnNftModal: React.FC<BurnNftModalProps> = ({ nft, tokenIds, onSuccess, o
   const [accepted, setAccepted] = useState(false)
   const TranslateString = useI18n()
   const { account } = useWallet()
-  const rabbitMintingContract = useRabbitMintingFarm(RABBIT_MINTING_FARM_ADDRESS)
+  const nftMintingContract = useNFTMintingFarm(NFT_MINTING_FARM_ADDRESS)
 
   const handleConfirm = async () => {
     try {
       const [tokenId] = tokenIds
 
-      await rabbitMintingContract.methods
+      await nftMintingContract.methods
         .burnNFT(tokenId)
         .send({ from: account })
         .on('sending', () => {

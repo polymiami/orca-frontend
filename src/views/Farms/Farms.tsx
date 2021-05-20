@@ -25,8 +25,8 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const { path } = useRouteMatch()
   const TranslateString = useI18n()
   const farmsLP = useFarms()
-  const cakePrice = usePriceOrcaUsdc()      // ORCA-USDT PRICE
-  const bnbPrice = usePriceMaticUsdc()        // MATIC-USDT PRICE
+  const orcaPrice = usePriceOrcaUsdc()          // ORCA-USDT PRICE
+  const maticPrice = usePriceMaticUsdc()        // MATIC-USDT PRICE
   const { account, ethereum }: { account: string; ethereum: provider } = useWallet()
   const {tokenMode} = farmsProps;
 
@@ -68,14 +68,14 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         //   userAllowance = userWL.allowance
         // }
 
-        let apy = cakePrice.times(cakeRewardPerYear);
+        let apy = orcaPrice.times(cakeRewardPerYear);
 
         let totalValue = new BigNumber(farm.lpTotalInQuoteToken || 0);
 
         if (farm.quoteTokenSymbol === QuoteToken.WMATIC) {
-          totalValue = totalValue.times(bnbPrice);
+          totalValue = totalValue.times(maticPrice);
         } else if (farm.quoteTokenSymbol === QuoteToken.ORCA) {
-          totalValue = totalValue.times(cakePrice);
+          totalValue = totalValue.times(orcaPrice);
         }
 
         if(totalValue.comparedTo(0) > 0){
@@ -89,14 +89,14 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
           key={farm.pid}
           farm={farm}
           removed={removed}
-          bnbPrice={bnbPrice}
-          cakePrice={cakePrice}
+          maticPrice={maticPrice}
+          orcaPrice={orcaPrice}
           ethereum={ethereum}
           account={account}
         />
       ))
     },
-    [bnbPrice, account, cakePrice, ethereum],
+    [maticPrice, account, orcaPrice, ethereum],
   )
 
   return (

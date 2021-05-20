@@ -3,12 +3,12 @@ import styled from 'styled-components'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { Button, Modal, Text } from '@pancakeswap-libs/uikit'
 import { getBalanceNumber } from 'utils/formatBalance'
-import { RABBIT_MINTING_FARM_ADDRESS } from 'config/constants/nfts'
-import { getCakeAddress } from 'utils/addressHelpers'
+import { NFT_MINTING_FARM_ADDRESS } from 'config/constants/nfts'
+import { getOrcaAddress } from 'utils/addressHelpers'
 import { Nft } from 'config/constants/types'
 import useTokenBalance from 'hooks/useTokenBalance'
 import useI18n from 'hooks/useI18n'
-import { useRabbitMintingFarm } from 'hooks/useContract'
+import { useNFTMintingFarm } from 'hooks/useContract'
 import InfoRow from './InfoRow'
 
 interface ClaimNftModalProps {
@@ -36,13 +36,13 @@ const ClaimNftModal: React.FC<ClaimNftModalProps> = ({ nft, onSuccess, onDismiss
   const [error, setError] = useState(null)
   const TranslateString = useI18n()
   const { account } = useWallet()
-  const rabbitMintingContract = useRabbitMintingFarm(RABBIT_MINTING_FARM_ADDRESS)
-  const cakeBalance = useTokenBalance(getCakeAddress())
+  const nftMintingContract = useNFTMintingFarm(NFT_MINTING_FARM_ADDRESS)
+  const cakeBalance = useTokenBalance(getOrcaAddress())
   const cakeInWallet = getBalanceNumber(cakeBalance)
 
   const handleConfirm = async () => {
     try {
-      await rabbitMintingContract.methods
+      await nftMintingContract.methods
         .mintNFT(nft.bunnyId)
         .send({ from: account })
         .on('sending', () => {
