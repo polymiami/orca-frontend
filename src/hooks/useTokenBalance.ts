@@ -60,8 +60,6 @@ export const useBurnedBalance = (tokenAddress: string) => {
 
     fetchBalance()
   }, [tokenAddress, slowRefresh])
-
-  console.log("LP contract balances", balance, balanceMaticLp, balanceUsdcLp, balanceUsdtLp, balance.plus(balanceMaticLp).plus(balanceUsdcLp).plus(balanceUsdtLp).toString())
   
   // return balance
   return balance.plus(balanceMaticLp).plus(balanceUsdcLp).plus(balanceUsdtLp)
