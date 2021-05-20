@@ -9,7 +9,6 @@ import useFarmsWithBalance from 'hooks/useFarmsWithBalance'
 import UnlockButton from 'components/UnlockButton'
 import OrcaHarvestBalance from './OrcaHarvestBalance'
 import OrcaWalletBalance from './OrcaWalletBalance'
-import useAllEarnings from '../../../hooks/useAllEarnings'
 import { usePriceOrcaUsdc } from '../../../state/hooks'
 import { getOrcaAddress } from '../../../utils/addressHelpers'
 import useTokenBalance from '../../../hooks/useTokenBalance'
@@ -44,8 +43,8 @@ const FarmedStakingCard = () => {
   const { account } = useWallet()
   const TranslateString = useI18n()
   const farmsWithBalance = useFarmsWithBalance()
-  const cakeBalance = getBalanceNumber(useTokenBalance(getOrcaAddress()))
-  const eggPrice = usePriceOrcaUsdc().toNumber()
+  const orcaBalance = getBalanceNumber(useTokenBalance(getOrcaAddress()))
+  const orcaPrice = usePriceOrcaUsdc().toNumber()
   const earningsSum = farmsWithBalance.reduce((accum, farm) => {
     return accum + new BigNumber(farm.balance).div(new BigNumber(10).pow(18)).toNumber()
   }, 0)
@@ -70,16 +69,16 @@ const FarmedStakingCard = () => {
         <Heading size="xl" mb="24px">
           {TranslateString(542, 'Farms & Staking')}
         </Heading>
-        <CardImage src="/images/egg/2.png" alt="cake logo" width={64} height={64} />
+        <CardImage src="/images/egg/2.png" alt="orca logo" width={64} height={64} />
         <Block>
           <Label>{TranslateString(544, 'ORCA to Harvest')}</Label>
           <OrcaHarvestBalance earningsSum={earningsSum}/>
-          <Label>~${(eggPrice * earningsSum).toFixed(2)}</Label>
+          <Label>~${(orcaPrice * earningsSum).toFixed(2)}</Label>
         </Block>
         <Block>
           <Label>{TranslateString(546, 'ORCA in Wallet')}</Label>
-          <OrcaWalletBalance cakeBalance={cakeBalance} />
-          <Label>~${(eggPrice * cakeBalance).toFixed(2)}</Label>
+          <OrcaWalletBalance orcaBalance={orcaBalance} />
+          <Label>~${(orcaPrice * orcaBalance).toFixed(2)}</Label>
         </Block>
         <Actions>
           {account ? (

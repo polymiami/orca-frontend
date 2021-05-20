@@ -41,12 +41,17 @@ const OrcaStats = () => {
     <StyledOrcaStats>
       <CardBody>
         <Heading size="xl" mb="24px">
-          {TranslateString(534, 'Statistics')}
+          {TranslateString(534, 'ORCA Statistics')}
         </Heading>
+        <Row>
+          <Text fontSize="14px">Price</Text>
+          <CardValue fontSize="14px" value={getBalanceNumber(orcaPrice, 0)} decimals={3} prefix="$" />
+        </Row>
         <Row>
           <Text fontSize="14px">{TranslateString(999, 'Market Capitalization')}</Text>
           <CardValue fontSize="14px" value={getBalanceNumber(marketCap)} decimals={0} prefix="$" />
         </Row>
+        <br />
         <br />
         <Row>
           <Text fontSize="14px">{TranslateString(536, 'Total ORCA Supply')}</Text>
@@ -60,7 +65,6 @@ const OrcaStats = () => {
           <Text fontSize="14px">{TranslateString(538, 'Total ORCA Burned')}</Text>
           <CardValue fontSize="14px" value={getBalanceNumber(burnedBalance)} decimals={0} />
         </Row>
-        <br />
         <Row>
           <Text fontSize="14px">{TranslateString(540, 'New ORCA/block')}</Text>
           <Text bold fontSize="14px">{orcaPerBlock}</Text>
