@@ -27,12 +27,6 @@ export enum QuoteToken {
   'WMATIC' = 'WMATIC'
 }
 
-export enum PoolCategory {
-  'COMMUNITY' = 'Community',
-  'CORE' = 'Core',
-  'BINANCE' = 'Binance', // Pools using native BNB behave differently than pools using a token
-}
-
 export interface Address {
   97?: string
   56: string
@@ -56,23 +50,6 @@ export interface FarmConfig {
     earnLabel: string
     endBlock: number
   }
-}
-
-export interface PoolConfig {
-  sousId: number
-  image?: string
-  tokenName: string
-  stakingTokenName: QuoteToken
-  stakingLimit?: number
-  stakingTokenAddress?: string
-  contractAddress: Address
-  poolCategory: PoolCategory
-  projectLink: string
-  tokenPerBlock: string
-  sortOrder?: number
-  harvest?: boolean
-  isFinished?: boolean
-  tokenDecimals: number
 }
 
 export type Nft = {

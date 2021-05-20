@@ -90,12 +90,10 @@ interface FarmCardProps {
 
 const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, orcaPrice, maticPrice, ethereum, account }) => {
   const TranslateString = useI18n()
-
   const [showExpandableSection, setShowExpandableSection] = useState(false)
 
-  // const isCommunityFarm = communityFarms.includes(farm.tokenSymbol)
-  // We assume the token name is coin pair + lp e.g. CAKE-BNB LP, LINK-BNB LP,
-  // NAR-CAKE LP. The images should be cake-bnb.svg, link-bnb.svg, nar-cake.svg
+  // We assume the token name is coin pair + lp e.g. ORCA-WMATIC LP, ORCA-USDT LP,
+  // ORCA-USDC LP. The images should be orca-wmatic.png, orca-usdt.svg, orca-usdc.svg
   // const farmImage = farm.lpSymbol.split(' ')[0].toLocaleLowerCase()
   const farmImage = farm.isTokenOnly ? farm.tokenSymbol.toLowerCase() : `${farm.tokenSymbol.toLowerCase()}-${farm.quoteTokenSymbol.toLowerCase()}`
 

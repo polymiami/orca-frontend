@@ -1,9 +1,9 @@
 import { useCallback } from 'react'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { useDispatch } from 'react-redux'
-import { fetchFarmUserDataAsync, updateUserBalance, updateUserPendingReward } from 'state/actions'
-import { soushHarvest, soushHarvestBnb, harvest } from 'utils/callHelpers'
-import { useMasterchef, useSousChef } from './useContract'
+import { fetchFarmUserDataAsync } from 'state/actions'
+import { harvest } from 'utils/callHelpers'
+import { useMasterchef } from './useContract'
 
 export const useHarvest = (farmPid: number) => {
   const dispatch = useDispatch()
@@ -30,27 +30,6 @@ export const useAllHarvest = (farmPids: number[]) => {
 
     return Promise.all(harvestPromises)
   }, [account, farmPids, masterChefContract])
-
-  return { onReward: handleHarvest }
-}
-
-export const useSousHarvest = (sousId, isUsingBnb = false) => {
-  const dispatch = useDispatch()
-  const { account } = useWallet()
-  const sousChefContract = useSousChef(sousId)
-  const masterChefContract = useMasterchef()
-
-  const handleHarvest = useCallback(async () => {
-    if (sousId === 0) {
-      await harvest(masterChefContract, 0, account)
-    } else if (isUsingBnb) {
-      await soushHarvestBnb(sousChefContract, account)
-    } else {
-      await soushHarvest(sousChefContract, account)
-    }
-    dispatch(updateUserPendingReward(sousId, account))
-    dispatch(updateUserBalance(sousId, account))
-  }, [account, dispatch, isUsingBnb, masterChefContract, sousChefContract, sousId])
 
   return { onReward: handleHarvest }
 }

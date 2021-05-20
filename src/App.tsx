@@ -7,18 +7,13 @@ import { useFetchPublicData } from 'state/hooks'
 import GlobalStyle from './style/Global'
 import Menu from './components/Menu'
 import PageLoader from './components/PageLoader'
-import NftGlobalNotification from './views/Nft/components/NftGlobalNotification'
 
 // Route-based code splitting
 // Only pool is included in the main bundle because of it's the most visited page'
 const Home = lazy(() => import('./views/Home'))
 const Farms = lazy(() => import('./views/Farms'))
-// const Lottery = lazy(() => import('./views/Lottery'))
-// const Pools = lazy(() => import('./views/Pools'))
-// const Ifos = lazy(() => import('./views/Ifos'))
 const NotFound = lazy(() => import('./views/NotFound'))
 const Buy = lazy(() => import('./views/Buy'))
-// const Nft = lazy(() => import('./views/Nft'))
 
 // This config is required for number formating
 BigNumber.config({
@@ -52,26 +47,9 @@ const App: React.FC = () => {
             <Route path="/pools">
               <Farms tokenMode/>
             </Route>
-            {/* <Route path="/pools">
-              <Pools />
-            </Route> */}
             <Route path="/buy">
               <Buy />
             </Route>
-            {/* <Route path="/lottery"> */}
-            {/*  <Lottery /> */}
-            {/* </Route> */}
-            {/* <Route path="/ifo"> */}
-            {/*  <Ifos /> */}
-            {/* </Route> */}
-            {/* <Route path="/nft"> */}
-            {/*  <Nft /> */}
-            {/* </Route> */}
-            {/* Redirect */}
-            {/* <Route path="/syrup"> */}
-            {/*  <Redirect to="/pools" /> */}
-            {/* </Route> */}
-            {/* 404 */}
             <Route component={NotFound} />
           </Switch>
         </Suspense>

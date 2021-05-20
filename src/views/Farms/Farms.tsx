@@ -52,23 +52,14 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   // to retrieve assets prices against USD
   const farmsList = useCallback(
     (farmsToDisplay, removed: boolean) => {
-      // const cakePriceVsBNB = new BigNumber(farmsLP.find((farm) => farm.pid === CAKE_POOL_PID)?.tokenPriceVsQuote || 0)
-      // let userTotalTVL = new BigNumber(0);
-      // let userAllowance = 0;
       const farmsToDisplayWithAPY: FarmWithStakedValue[] = farmsToDisplay.map((farm) => {
-        // if (!farm.tokenAmount || !farm.lpTotalInQuoteToken || !farm.lpTotalInQuoteToken) {
-        //   return farm
-        // }
-        const cakeRewardPerBlock = new BigNumber(farm.orcaPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
-        const cakeRewardPerYear = cakeRewardPerBlock.times(BLOCKS_PER_YEAR)
-        // if (farm.userData) {
-        //   const userShare = new BigNumber(farm.userData.stakedBalance).div(1000000000000000000).multipliedBy(farm.tokenPriceVsQuote)
-        //   userTotalTVL = userTotalTVL.plus(userShare)
-        //   const userWL = Whitelist.find(add => add.wallet === account);
-        //   userAllowance = userWL.allowance
-        // }
+        const orcaRewardPerBlock = new BigNumber(farm.orcaPerBlock || 1)
+            .times(new BigNumber(farm.poolWeight))
+            .div(new BigNumber(10)
+            .pow(18))
+        const orcaRewardPerYear = orcaRewardPerBlock.times(BLOCKS_PER_YEAR)
 
-        let apy = orcaPrice.times(cakeRewardPerYear);
+        let apy = orcaPrice.times(orcaRewardPerYear);
 
         let totalValue = new BigNumber(farm.lpTotalInQuoteToken || 0);
 

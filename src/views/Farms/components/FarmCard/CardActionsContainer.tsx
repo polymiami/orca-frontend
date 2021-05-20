@@ -8,7 +8,7 @@ import { Farm } from 'state/types'
 import { useFarmFromPid, useFarmFromSymbol, useFarmUser } from 'state/hooks'
 import useI18n from 'hooks/useI18n'
 import UnlockButton from 'components/UnlockButton'
-import { useApprove } from 'hooks/useApprove'
+import useApprove from 'hooks/useApprove'
 import StakeAction from './StakeAction'
 import HarvestAction from './HarvestAction'
 

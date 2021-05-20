@@ -567,19 +567,19 @@
     {
       "data": {
         "stringId": 504,
-        "text": "You\u2019ll pay for the new tokens using ORCA-BNB LP tokens, which means you need to stake equal amounts of ORCA and BNB in a liquidity pool to take part."
+        "text": "You\u2019ll pay for the new tokens using ORCA-WMATIC LP tokens, which means you need to stake equal amounts of ORCA and WMATIC in a liquidity pool to take part."
       }
     },
     {
       "data": {
         "stringId": 506,
-        "text": "Get ORCA-BNB LP >"
+        "text": "Get ORCA-WMATIC LP >"
       }
     },
     {
       "data": {
         "stringId": 508,
-        "text": "The project gets the BNB, PolyORCA burns the ORCA."
+        "text": "The project gets the WMATIC, PolyORCA burns the ORCA."
       }
     },
     {
@@ -813,13 +813,13 @@
     {
       "data": {
         "stringId": 596,
-        "text": "Buy ORCA and BNB tokens"
+        "text": "Buy ORCA and WMATIC tokens"
       }
     },
     {
       "data": {
         "stringId": 598,
-        "text": "Get ORCA-BNB LP tokens by adding ORCA and BNB liquidity"
+        "text": "Get ORCA-WMATIC LP tokens by adding ORCA and WMATIC liquidity"
       }
     },
     {

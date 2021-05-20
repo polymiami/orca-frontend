@@ -3,14 +3,8 @@ import { AbiItem } from 'web3-utils'
 import { ContractOptions } from 'web3-eth-contract'
 import useWeb3 from 'hooks/useWeb3'
 import { getMasterChefAddress, getOrcaAddress } from 'utils/addressHelpers'
-import { poolsConfig } from 'config/constants'
-import { PoolCategory } from 'config/constants/types'
 import erc20 from 'config/abi/erc20.json'
-import nftmintingfarm from 'config/abi/nftmintingfarm.json'
-import nft from 'config/abi/nft.json'
 import masterChef from 'config/abi/masterchef.json'
-import sousChef from 'config/abi/sousChef.json'
-import sousChefBnb from 'config/abi/sousChefBnb.json'
 
 const useContract = (abi: AbiItem, address: string, contractOptions?: ContractOptions) => {
   const web3 = useWeb3()
@@ -35,26 +29,9 @@ export const useOrca = () => {
   return useERC20(getOrcaAddress())
 }
 
-export const useNFTMintingFarm = (address: string) => {
-  const nftMintingFarmAbi = (nftmintingfarm as unknown) as AbiItem
-  return useContract(nftMintingFarmAbi, address)
-}
-
-export const useNFTs = (address: string) => {
-  const nftAbi = (nft as unknown) as AbiItem
-  return useContract(nftAbi, address)
-}
-
 export const useMasterchef = () => {
   const abi = (masterChef as unknown) as AbiItem
   return useContract(abi, getMasterChefAddress())
-}
-
-export const useSousChef = (id) => {
-  const config = poolsConfig.find((pool) => pool.sousId === id)
-  const rawAbi = config.poolCategory === PoolCategory.BINANCE ? sousChefBnb : sousChef
-  const abi = (rawAbi as unknown) as AbiItem
-  return useContract(abi, config.contractAddress[process.env.REACT_APP_CHAIN_ID])
 }
 
 export default useContract
