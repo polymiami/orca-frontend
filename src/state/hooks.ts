@@ -85,7 +85,7 @@ export const usePriceCakeBusd = (): BigNumber => {
 export const usePriceWethBusd = (): BigNumber => {
   const pid = 28; // WETH-BUSD LP
   const farm = useFarmFromPid(pid);
-  console.log("usePriceWethBusd", farm.lpSymbol, farm.tokenSymbol, farm.lpAddresses, farm.tokenAddresses);
+  // console.log("usePriceWethBusd", farm.lpSymbol, farm.tokenSymbol, farm.lpAddresses, farm.tokenAddresses);
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO;
 }
 
@@ -110,10 +110,7 @@ export const useTotalValue = (): BigNumber => {
       else if (farm.quoteTokenSymbol === QuoteToken.WETH) {
         val = (wethPrice.times(farm.lpTotalInQuoteToken));
       }
-      // else if (farm.quoteTokenSymbol === QuoteToken.BUSD) {
-      //  val = (cakePrice.times(farm.lpTotalInQuoteToken));
-      // }
-      else{
+      else {
         val = (farm.lpTotalInQuoteToken);
       }
       value = value.plus(val);
