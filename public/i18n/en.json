@@ -651,7 +651,7 @@
     {
       "data": {
         "stringId": 536,
-        "text": "Total Minted"
+        "text": "Circulating Supply"
       }
     },
     {
@@ -663,7 +663,7 @@
     {
       "data": {
         "stringId": 540,
-        "text": "New ORCA\/block"
+        "text": "Block Reward"
       }
     },
     {
@@ -1239,7 +1239,7 @@
     {
       "data": {
         "stringId": 10005,
-        "text": "Market Cap"
+        "text": "Market Capitalization"
       }
     }
   ],

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import BigNumber from 'bignumber.js'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { provider } from 'web3-core'
-import cakeABI from 'config/abi/orca.json'
+import orcaABI from 'config/abi/orca.json'
 import { getContract } from 'utils/web3'
 import { getTokenBalance } from 'utils/erc20'
 import { getOrcaAddress } from 'utils/addressHelpers'
@@ -33,8 +33,8 @@ export const useTotalSupply = () => {
 
   useEffect(() => {
     async function fetchTotalSupply() {
-      const cakeContract = getContract(cakeABI, getOrcaAddress())
-      const supply = await cakeContract.methods.totalSupply().call()
+      const orcaContract = getContract(orcaABI, getOrcaAddress())
+      const supply = await orcaContract.methods.totalSupply().call()
       setTotalSupply(new BigNumber(supply))
     }
 
@@ -46,19 +46,25 @@ export const useTotalSupply = () => {
 
 export const useBurnedBalance = (tokenAddress: string) => {
   const [balance, setBalance] = useState(new BigNumber(0))
+  const balanceMaticLp= new BigNumber(118054756000000000000000)
+  const balanceUsdcLp= new BigNumber(100000000000000000000000)
+  const balanceUsdtLp= new BigNumber(100000000000000000000000)
   const { slowRefresh } = useRefresh()
 
   useEffect(() => {
     const fetchBalance = async () => {
-      const cakeContract = getContract(cakeABI, getOrcaAddress())
-      const bal = await cakeContract.methods.balanceOf('0x000000000000000000000000000000000000dEaD').call()
-      setBalance(new BigNumber(bal))
+      const orcaContract = getContract(orcaABI, getOrcaAddress())
+      const balBurn = await orcaContract.methods.balanceOf('0x0000000000000000000000000000000000000000').call()       // burn address
+      setBalance(new BigNumber(balBurn))
     }
 
     fetchBalance()
   }, [tokenAddress, slowRefresh])
 
-  return balance
+  console.log("LP contract balances", balance, balanceMaticLp, balanceUsdcLp, balanceUsdtLp, balance.plus(balanceMaticLp).plus(balanceUsdcLp).plus(balanceUsdtLp).toString())
+  
+  // return balance
+  return balance.plus(balanceMaticLp).plus(balanceUsdcLp).plus(balanceUsdtLp)
 }
 
 export default useTokenBalance
