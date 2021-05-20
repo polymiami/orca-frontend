@@ -90,7 +90,17 @@ const Home: React.FC = () => {
     return (
         <Page>
             <Hero>
-                <h1 style={{ fontFamily: "Codystar, cursive", fontSize: "48px", paddingTop: "25px", paddingBottom: "25px" }}>OrcaSwap</h1>
+                <h1 
+                  style={{  fontFamily: "Codystar, cursive", 
+                            fontSize: "56px", 
+                            background: "-webkit-linear-gradient(#233142, #79618e)",
+                            WebkitBackgroundClip: "text",
+                            WebkitTextFillColor: "transparent",
+                            paddingTop: "25px", 
+                            paddingBottom: "25px" }}
+                >
+                  OrcaSwap
+                </h1>
                 <Text>by</Text>
                 {isDark === true ? (
                   <HeaderImage src="/images/egg/LogoFullTextNewDark.png" alt="Orcinus Labs logo" width={280} height={280} />
