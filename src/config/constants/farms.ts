@@ -18,7 +18,7 @@ const farms: FarmConfig[] = [
       56: '0xC22dA91b0eaa33B88f67F543460E56f789ade50b',
       137: '0xC22dA91b0eaa33B88f67F543460E56f789ade50b',
     },
-    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenSymbol: QuoteToken.WMATIC,
     quoteTokenAdresses: contracts.wbnb,
   },
   {
@@ -37,7 +37,7 @@ const farms: FarmConfig[] = [
       56: '0xC22dA91b0eaa33B88f67F543460E56f789ade50b',
       137: '0xC22dA91b0eaa33B88f67F543460E56f789ade50b',
     },
-    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenSymbol: QuoteToken.USDC,
     quoteTokenAdresses: contracts.busd,
   },
   {
@@ -75,7 +75,7 @@ const farms: FarmConfig[] = [
       56: '0xC22dA91b0eaa33B88f67F543460E56f789ade50b',
       137: '0xC22dA91b0eaa33B88f67F543460E56f789ade50b',
     },
-    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenSymbol: QuoteToken.USDT,
     quoteTokenAdresses: contracts.busd,
   },
   {
@@ -94,7 +94,7 @@ const farms: FarmConfig[] = [
       56: '0x2791bca1f2de4661ed88a30c99a7a9449aa84174',
       137: '0x2791bca1f2de4661ed88a30c99a7a9449aa84174', // USDC
     },
-    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenSymbol: QuoteToken.USDT,
     quoteTokenAdresses: contracts.busd,
   },
   {
@@ -113,7 +113,7 @@ const farms: FarmConfig[] = [
       56: '0x0b3F868E0BE5597D5DB7fEB59E1CADBb0fdDa50a',
       137: '0x0b3F868E0BE5597D5DB7fEB59E1CADBb0fdDa50a', // SUSHI
     },
-    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenSymbol: QuoteToken.USDT,
     quoteTokenAdresses: contracts.busd,
   },
   // {
@@ -151,7 +151,7 @@ const farms: FarmConfig[] = [
       56: '0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270',
       137: '0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270', // WMATIC
     },
-    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenSymbol: QuoteToken.USDT,
     quoteTokenAdresses: contracts.busd,
   },
   {
@@ -170,7 +170,7 @@ const farms: FarmConfig[] = [
       56: '0xc2132d05d31c914a87c6611c10748aeb04b58e8f',
       137: '0xc2132d05d31c914a87c6611c10748aeb04b58e8f', // USDT
     },
-    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenSymbol: QuoteToken.USDT,
     quoteTokenAdresses: contracts.busd,
   },
   {
@@ -189,7 +189,7 @@ const farms: FarmConfig[] = [
       56: '0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6',
       137: '0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6', // WBTC
     },
-    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenSymbol: QuoteToken.USDT,
     quoteTokenAdresses: contracts.busd,
   },
   {
@@ -208,7 +208,7 @@ const farms: FarmConfig[] = [
       56: '0x7ceb23fd6bc0add59e62ac25578270cff1b9f619',
       137: '0x7ceb23fd6bc0add59e62ac25578270cff1b9f619', // ETH
     },
-    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenSymbol: QuoteToken.USDT,
     quoteTokenAdresses: contracts.busd,
   },
   {
@@ -227,7 +227,7 @@ const farms: FarmConfig[] = [
       56: '0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39',
       137: '0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39', // LINK
     },
-    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenSymbol: QuoteToken.WMATIC,
     quoteTokenAdresses: contracts.wbnb,
   },
   {
@@ -246,7 +246,7 @@ const farms: FarmConfig[] = [
       56: '0xd6df932a45c0f255f85145f286ea0b292b21c90b',
       137: '0xd6df932a45c0f255f85145f286ea0b292b21c90b', // AAVE
     },
-    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenSymbol: QuoteToken.WMATIC,
     quoteTokenAdresses: contracts.wbnb,
   },
 ]

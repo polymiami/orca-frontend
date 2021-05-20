@@ -17,8 +17,9 @@ export const useFetchPublicData = () => {
   }, [dispatch, slowRefresh])
 }
 
-// Farms
-
+/**
+ * Farms!
+ */
 export const useFarms = (): Farm[] => {
   const farms = useSelector((state: State) => state.farms.data)
   return farms
@@ -45,9 +46,9 @@ export const useFarmUser = (pid) => {
   }
 }
 
-
-// Pools
-
+/**
+ * Pools!
+ */
 export const usePools = (account): Pool[] => {
   const { fastRefresh } = useRefresh()
   const dispatch = useDispatch()
@@ -66,46 +67,43 @@ export const usePoolFromPid = (sousId): Pool => {
   return pool
 }
 
-/*
- * Generate prices.
+/**
+ * Prices & Conversion!
  */
-export const usePriceBnbBusd = (): BigNumber => {
+export const usePriceMaticUsdc = (): BigNumber => {
   const pid = 25 // WMATIC-USDC LP
   const farm = useFarmFromPid(pid)
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO
 }
 
-export const usePriceCakeBusd = (): BigNumber => {
-
+export const usePriceOrcaUsdc = (): BigNumber => {
   const pid = 5; // ORCA-USDC LP
   const farm = useFarmFromPid(pid);
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO;
 }
 
-export const usePriceWethBusd = (): BigNumber => {
+export const usePriceWethUsdc = (): BigNumber => {
   const pid = 28; // WETH-BUSD LP
   const farm = useFarmFromPid(pid);
-  // console.log("usePriceWethBusd", farm.lpSymbol, farm.tokenSymbol, farm.lpAddresses, farm.tokenAddresses);
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO;
 }
 
 export const useTotalValue = (): BigNumber => {
   const farms = useFarms();
 
-  // Get prices
-  const bnbPrice = usePriceBnbBusd();
-  const cakePrice = usePriceCakeBusd();
-  const wethPrice = usePriceWethBusd();
+  const maticPrice = usePriceMaticUsdc();
+  const orcaPrice = usePriceOrcaUsdc();
+  const wethPrice = usePriceWethUsdc();
 
   let value = new BigNumber(0);
   for (let i = 0; i < farms.length; i++) {
     const farm = farms[i]
     if (farm.lpTotalInQuoteToken) {
       let val;
-      if (farm.quoteTokenSymbol === QuoteToken.BNB) {
-        val = (bnbPrice.times(farm.lpTotalInQuoteToken));
-      } else if (farm.quoteTokenSymbol === QuoteToken.CAKE) {
-        val = (cakePrice.times(farm.lpTotalInQuoteToken));
+      if (farm.quoteTokenSymbol === QuoteToken.WMATIC) {
+        val = (maticPrice.times(farm.lpTotalInQuoteToken));
+      } else if (farm.quoteTokenSymbol === QuoteToken.ORCA) {
+        val = (orcaPrice.times(farm.lpTotalInQuoteToken));
       } 
       else if (farm.quoteTokenSymbol === QuoteToken.WETH) {
         val = (wethPrice.times(farm.lpTotalInQuoteToken));

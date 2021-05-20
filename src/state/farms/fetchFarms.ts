@@ -67,7 +67,7 @@ const fetchFarms = async () => {
       //   tokenDecimals,farmConfig
       // )
         tokenAmount = new BigNumber(lpTokenBalanceMC).div(new BigNumber(10).pow(6));
-        if (farmConfig.tokenSymbol === QuoteToken.BUSD && farmConfig.quoteTokenSymbol === QuoteToken.BUSD){
+        if (farmConfig.tokenSymbol === QuoteToken.USDT && farmConfig.quoteTokenSymbol === QuoteToken.USDT){
           tokenPriceVsQuote = new BigNumber(1);
         } 
         else{

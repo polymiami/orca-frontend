@@ -5,7 +5,7 @@ import max from 'lodash/max'
 import { NavLink } from 'react-router-dom'
 import BigNumber from 'bignumber.js'
 import { QuoteToken } from 'config/constants/types'
-import { useFarms, usePriceBnbBusd, usePriceCakeBusd } from 'state/hooks'
+import { useFarms, usePriceMaticUsdc, usePriceOrcaUsdc } from 'state/hooks'
 
 const StyledFarmStakingCard = styled(Card)`
   margin-left: auto;
@@ -27,8 +27,8 @@ const CardMidContent = styled(Heading).attrs({ size: 'xl' })`
 `
 const EarnAPRCard = () => {
     const farms = useFarms()
-    const cakePrice = usePriceCakeBusd()
-    const bnbPrice = usePriceBnbBusd()
+    const cakePrice = usePriceOrcaUsdc()
+    const bnbPrice = usePriceMaticUsdc()
 
     const highestApr = useMemo(() => {
         const aprs = farms
@@ -43,7 +43,7 @@ const EarnAPRCard = () => {
                     let apy = cakePrice.times(cakeRewardPerYear);
                     let totalValue = new BigNumber(farm.lpTotalInQuoteToken || 0);
 
-                    if (farm.quoteTokenSymbol === QuoteToken.BNB) {
+                    if (farm.quoteTokenSymbol === QuoteToken.WMATIC) {
                         totalValue = totalValue.times(bnbPrice);
                     }
 
