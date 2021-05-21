@@ -126,9 +126,16 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
         )}
       </Description>
       <Flex justifyContent="center">
-        <LinkExternal href={`https://exchange.pancakeswap.finance/#/add/${liquidityUrlPathParts}`}>
-          {TranslateString(999, 'Get')} {lpLabel}
-        </LinkExternal>
+        {(lpLabel.includes('-')) ? (
+          <LinkExternal href={`https://quickswap.exchange/#/add/${liquidityUrlPathParts}`}>
+            {TranslateString(999, 'Get')} {lpLabel}
+          </LinkExternal>
+        ) : (
+          <LinkExternal href={(lpLabel.includes('SUSHI')) ? `https://app.sushi.com/#/swap/${liquidityUrlPathParts.slice(liquidityUrlPathParts.indexOf("/") + 1)}` : `https://quickswap.exchange/#/swap/${liquidityUrlPathParts.slice(liquidityUrlPathParts.indexOf("/") + 1)}`}>
+            {TranslateString(999, 'Get')} {lpLabel}
+          </LinkExternal>
+        )}
+        
       </Flex>
     </Modal>
   )
