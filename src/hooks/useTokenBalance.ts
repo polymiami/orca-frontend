@@ -54,7 +54,7 @@ export const useBurnedBalance = (tokenAddress: string) => {
   useEffect(() => {
     const fetchBalance = async () => {
       const orcaContract = getContract(orcaABI, getOrcaAddress())
-      const balBurn = await orcaContract.methods.balanceOf('0x0000000000000000000000000000000000000000').call()       // burn address
+      const balBurn = await orcaContract.methods.balanceOf('0x000000000000000000000000000000000000dead').call()       // burn address
       setBalance(new BigNumber(balBurn))
     }
 
