@@ -60,6 +60,25 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.usdt,
   },
   {
+    pid: 34,
+    isTokenOnly: false,
+    risk: 3,
+    lpSymbol: 'ORCA-ZERO',
+    lpAddresses: {
+      97: '',
+      56: '',
+      137: '0x655778f59703Ccc75Bc0F828A51672B3f419aFD7', // ORCA - ZERO
+    },
+    tokenSymbol: 'ORCA',
+    tokenAddresses: {
+      97: '',
+      56: '0xC22dA91b0eaa33B88f67F543460E56f789ade50b',
+      137: '0xC22dA91b0eaa33B88f67F543460E56f789ade50b',
+    },
+    quoteTokenSymbol: QuoteToken.WMATIC,      // TODO - update to pull from ZERO
+    quoteTokenAdresses: contracts.wmatic,     // TODO - update to pull from ZERO
+  },
+  {
     pid: 23,
     risk: 5,
     isTokenOnly: true,
@@ -248,6 +267,44 @@ const farms: FarmConfig[] = [
     },
     quoteTokenSymbol: QuoteToken.WMATIC,
     quoteTokenAdresses: contracts.wmatic,
+  },
+  {
+    pid: 32,
+    isTokenOnly: true,
+    risk: 3,
+    lpSymbol: 'FISH',
+    lpAddresses: {
+      97: '',
+      56: '',
+      137: '0x289cf2b63c5edeeeab89663639674d9233e8668e', // FISH - WMATIC
+    },
+    tokenSymbol: 'FISH',
+    tokenAddresses: {
+      97: '',
+      56: '',
+      137: '0x3a3Df212b7AA91Aa0402B9035b098891d276572B', // FISH
+    },
+    quoteTokenSymbol: QuoteToken.WMATIC,
+    quoteTokenAdresses: contracts.wmatic,
+  },
+  {
+    pid: 33,
+    isTokenOnly: true,
+    risk: 3,
+    lpSymbol: 'KRILL',
+    lpAddresses: {
+      97: '',
+      56: '',
+      137: '0x6405ebc22cb0899fc21f414085ac4044b4721a0d', // KRILL - USDC
+    },
+    tokenSymbol: 'KRILL',
+    tokenAddresses: {
+      97: '',
+      56: '',
+      137: '0x05089C9EBFFa4F0AcA269e32056b1b36B37ED71b', // KRILL
+    },
+    quoteTokenSymbol: QuoteToken.USDT,
+    quoteTokenAdresses: contracts.usdc,
   },
 ]
 
