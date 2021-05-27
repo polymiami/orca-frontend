@@ -107,6 +107,11 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, orcaPrice, maticPric
     if (farm.quoteTokenSymbol === QuoteToken.ORCA) {
       return orcaPrice.times(farm.lpTotalInQuoteToken)
     }
+    if (farm.quoteTokenSymbol === QuoteToken.ZERO) {
+      const valueInOrca = (orcaPrice.times(farm.lpTotalInQuoteToken));
+      const valueInUdsc = (orcaPrice.times(valueInOrca));
+      return valueInUdsc.times(new BigNumber(0.5)).dividedBy((new BigNumber(10)).pow(10))
+    }
     return farm.lpTotalInQuoteToken
   }, [maticPrice, orcaPrice, farm.lpTotalInQuoteToken, farm.quoteTokenSymbol])
 
