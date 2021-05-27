@@ -59,25 +59,25 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.USDT,
     quoteTokenAdresses: contracts.usdt,
   },
-  // {
-  //   pid: 34,
-  //   isTokenOnly: false,
-  //   risk: 3,
-  //   lpSymbol: 'ORCA-ZERO',
-  //   lpAddresses: {
-  //     97: '',
-  //     56: '',
-  //     137: '0x655778f59703Ccc75Bc0F828A51672B3f419aFD7', // ORCA - ZERO
-  //   },
-  //   tokenSymbol: 'ORCA',
-  //   tokenAddresses: {
-  //     97: '',
-  //     56: '0xC22dA91b0eaa33B88f67F543460E56f789ade50b',
-  //     137: '0xC22dA91b0eaa33B88f67F543460E56f789ade50b',
-  //   },
-  //   quoteTokenSymbol: QuoteToken.ZERO,
-  //   quoteTokenAdresses: contracts.zero,
-  // },
+  {
+    pid: 34,
+    isTokenOnly: false,
+    risk: 3,
+    lpSymbol: 'ORCA-ZERO',
+    lpAddresses: {
+      97: '',
+      56: '',
+      137: '0x655778f59703Ccc75Bc0F828A51672B3f419aFD7', // ORCA - ZERO
+    },
+    tokenSymbol: 'ORCA',
+    tokenAddresses: {
+      97: '',
+      56: '0xC22dA91b0eaa33B88f67F543460E56f789ade50b',
+      137: '0xC22dA91b0eaa33B88f67F543460E56f789ade50b',
+    },
+    quoteTokenSymbol: QuoteToken.ZERO,
+    quoteTokenAdresses: contracts.zero,
+  },
   {
     pid: 23,
     risk: 5,
