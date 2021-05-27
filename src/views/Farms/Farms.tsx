@@ -67,6 +67,10 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
           totalValue = totalValue.times(maticPrice);
         } else if (farm.quoteTokenSymbol === QuoteToken.ORCA) {
           totalValue = totalValue.times(orcaPrice);
+        } else if (farm.quoteTokenSymbol === QuoteToken.ZERO) {
+          const valueInOrca = totalValue.times(orcaPrice);
+          const valueInUdsc = valueInOrca.times(orcaPrice);
+          totalValue = valueInUdsc.times(new BigNumber(0.5)).dividedBy((new BigNumber(10)).pow(10))
         }
 
         if(totalValue.comparedTo(0) > 0){

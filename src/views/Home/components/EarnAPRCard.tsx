@@ -36,19 +36,29 @@ const EarnAPRCard = () => {
             .filter((farm) => farm.multiplier !== '0X')
             .map((farm) => {
                 if (farm.lpTotalInQuoteToken) {
-                    const BLOCKS_PER_YEAR = new BigNumber(10512000)
+                    const BLOCKS_PER_YEAR = new BigNumber(15768000)
                     const orcaRewardPerBlock = new BigNumber(farm.orcaPerBlock || 0.3).times(new BigNumber(farm.poolWeight)).div(new BigNumber(10).pow(18))
                     const orcaRewardPerYear = orcaRewardPerBlock.times(BLOCKS_PER_YEAR)
 
                     let apy = orcaPrice.times(orcaRewardPerYear);
                     let totalValue = new BigNumber(farm.lpTotalInQuoteToken || 0);
 
+                    // console.log("EarnAPRCard", farm.tokenSymbol, farm.lpSymbol, "\n\napy", apy.toString(), "\n\ntotalValue", totalValue.toString())
+
                     if (farm.quoteTokenSymbol === QuoteToken.WMATIC) {
                         totalValue = totalValue.times(maticPrice);
+                        // console.log("EarnAPRCard", "\n\ntotalValueUpdated_WMATIC", totalValue.toString())
+                    }
+
+                    if (farm.quoteTokenSymbol === QuoteToken.ZERO) {
+                        console.log("EarnAPRCard", )
+                        totalValue = totalValue.times(orcaPrice);
+                        // console.log("EarnAPRCard", "\n\ntotalValueUpdated_ZERO", totalValue.toString())
                     }
 
                     if (totalValue.comparedTo(0) > 0) {
                         apy = apy.div(totalValue);
+                        // console.log("EarnAPRCard", "\n\nadjsutedAPY", apy.toString())
                     }
                     return { apy }
                 }

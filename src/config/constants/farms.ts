@@ -63,7 +63,7 @@ const farms: FarmConfig[] = [
     pid: 34,
     isTokenOnly: false,
     risk: 3,
-    lpSymbol: 'ORCA-ZERO',
+    lpSymbol: 'ORCA - ZERO',
     lpAddresses: {
       97: '',
       56: '',

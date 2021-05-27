@@ -145,6 +145,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, orcaPrice, maticPric
           <Text bold style={{ display: 'flex', alignItems: 'center' }}>
             {farm.apy ? (
               <>
+                {console.log("FarmCard", lpLabel, farm.apy.toString())}
                 <ApyButton
                   lpLabel={lpLabel}
                   quoteTokenAdresses={quoteTokenAdresses}
