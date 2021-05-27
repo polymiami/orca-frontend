@@ -82,11 +82,14 @@ export const useTotalValue = (): BigNumber => {
         val = (maticPrice.times(farm.lpTotalInQuoteToken));
       } else if (farm.quoteTokenSymbol === QuoteToken.ORCA) {
         val = (orcaPrice.times(farm.lpTotalInQuoteToken));
-      } 
-      else if (farm.quoteTokenSymbol === QuoteToken.WETH) {
+      } else if (farm.quoteTokenSymbol === QuoteToken.WETH) {
         val = (wethPrice.times(farm.lpTotalInQuoteToken));
-      }
-      else {
+      } else if (farm.quoteTokenSymbol === QuoteToken.ZERO) {
+        const lp = new BigNumber(farm.lpTotalInQuoteToken);
+        const tmp = (lp.dividedBy(orcaPrice));
+        val = (orcaPrice.times(tmp));
+        console.log("\n\n\n\n\n\n\norcaPrice", orcaPrice.toString(), "lpTotalInQuoteToken", farm.lpTotalInQuoteToken.toString(), "total", tmp.toString(), val.toString(), "\n\n\n\n\n\n\n");
+      } else {
         val = (farm.lpTotalInQuoteToken);
       }
       value = value.plus(val);

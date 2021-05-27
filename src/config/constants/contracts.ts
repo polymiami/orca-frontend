@@ -15,14 +15,19 @@ export default {
     137: '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174' // USDC
   },
   usdt: {
-    56: '0xe9e7cea3dedca5984780bafc599bd69add087d56',
+    56: '0xc2132D05D31c914a87C6611C10748AEb04B58e8F',
     97: '',
     137: '0xc2132D05D31c914a87C6611C10748AEb04B58e8F' // USDT
   },
   weth: {
-    56: '0xe9e7cea3dedca5984780bafc599bd69add087d56',
+    56: '0x7ceb23fd6bc0add59e62ac25578270cff1b9f619',
     97: '',
     137: '0x7ceb23fd6bc0add59e62ac25578270cff1b9f619' // WETH
+  },
+  zero: {
+    56: '0xb67176655e7919a27aA34C279157124619aDFd4B',
+    97: '',
+    137: '0xb67176655e7919a27aA34C279157124619aDFd4B' // ZERO
   },
   masterChef: {
     56: '0x22FcdEB269D8Ec9fB235db378c57887Ba7464f52',

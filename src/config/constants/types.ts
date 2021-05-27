@@ -3,7 +3,8 @@ export enum QuoteToken {
   'USDC' = 'USDC',
   'WETH' = 'WETH',
   'ORCA' = 'ORCA',
-  'WMATIC' = 'WMATIC'
+  'WMATIC' = 'WMATIC',
+  'ZERO' = 'ZERO'
 }
 
 export interface Address {
