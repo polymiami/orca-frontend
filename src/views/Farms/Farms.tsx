@@ -111,9 +111,9 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
       <Heading as="h1" size="md" color="primary" mb="50px" style={{ fontFamily: "Codystar, cursive", textAlign: 'center' }}>
         {
           tokenMode ?
-            'Stake tokens to earn $ORCA!'
+            'Stake tokens to earn $ORCA'
             :
-          'Stake LP tokens to earn $ORCA!'
+          'Stake LP tokens to earn $ORCA'
         }
       </Heading>
       <Heading as="h2" size="md" color="secondary" mb="50px" style={{ fontFamily: "Codystar, cursive", textAlign: 'center' }}>

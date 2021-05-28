@@ -89,17 +89,17 @@ const Home: React.FC = () => {
 
     return (
         <Page>
-            <Hero>
+            <Hero style={{ marginTop: "25px" }}>
                 <h1 
                   style={{  fontFamily: "Codystar, cursive", 
-                            fontSize: "56px", 
+                            fontSize: "96px", 
                             background: "-webkit-linear-gradient(#233142, #79618e)",
                             WebkitBackgroundClip: "text",
                             WebkitTextFillColor: "transparent",
                             paddingTop: "25px", 
                             paddingBottom: "25px" }}
                 >
-                  OrcaSwap
+                  OrcaFi
                 </h1>
                 <Text>by</Text>
                 {isDark === true ? (
@@ -108,7 +108,7 @@ const Home: React.FC = () => {
                   <HeaderImage src="/images/egg/LogoFullTextNewWhite.png" alt="Orcinus Labs logo" width={280} height={280} />
                 )}
             </Hero>
-            <div>
+            <div style={{ marginTop: "50px" }}>
                 <Cards>
                     <FarmStakingCard />         {/* Farms & Staking */}
                     <TwitterCard />             {/* Annoucements */}
