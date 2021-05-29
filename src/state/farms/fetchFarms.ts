@@ -56,6 +56,8 @@ const fetchFarms = async () => {
         tokenDecimals,
         quoteTokenDecimals
       ] = await multicall(erc20, calls)
+  
+      console.log("fetchFarms multicall1")
 
     
 
@@ -114,6 +116,8 @@ const fetchFarms = async () => {
           name: 'orcaPerBlock',
         },
       ])
+
+      console.log("fetchFarms multicall2")
 
       const allocPoint = new BigNumber(info.allocPoint._hex)
       const poolWeight = allocPoint.div(new BigNumber(totalAllocPoint))

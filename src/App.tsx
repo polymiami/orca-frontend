@@ -1,7 +1,7 @@
 import React, { useEffect, Suspense, lazy } from 'react'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
-import { ResetCSS } from '@pancakeswap-libs/uikit'
+import { ResetCSS } from '@orcinuslabs/uikit'
 import BigNumber from 'bignumber.js'
 import { useFetchPublicData } from 'state/hooks'
 import GlobalStyle from './style/Global'
@@ -29,7 +29,7 @@ const App: React.FC = () => {
     }
   }, [account, connect])
 
-  useFetchPublicData()
+  useFetchPublicData();
 
   return (
     <Router>

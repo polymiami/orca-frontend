@@ -20,6 +20,7 @@ const useAllEarnings = () => {
       }))
 
       const res = await multicall(masterChefABI, calls)
+      console.log("useAllEarnings multicall")
 
       setBalance(res)
     }

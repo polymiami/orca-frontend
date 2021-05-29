@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Cookies from 'universal-cookie';
-import { Heading, Text, BaseLayout } from '@pancakeswap-libs/uikit'
+import { Heading, Text, BaseLayout } from '@orcinuslabs/uikit'
 import useI18n from 'hooks/useI18n'
 import Page from 'components/layout/Page'
 import FarmStakingCard from './components/FarmStakingCard'

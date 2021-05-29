@@ -1,7 +1,7 @@
 import React from 'react'
 import useI18n from 'hooks/useI18n'
 import styled from 'styled-components'
-import { Text, Flex, Link, LinkExternal } from '@pancakeswap-libs/uikit'
+import { Text, Flex, Link, LinkExternal } from '@orcinuslabs/uikit'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { Address } from 'config/constants/types'
 
@@ -31,7 +31,7 @@ const StyledLinkExternal = styled(LinkExternal)`
     padding-left: 4px;
     height: 18px;
     width: auto;
-    fill: ${({ theme }) => theme.colors.primary};
+    fill: ${({ theme }) => theme.colors.text};
   }
 `
 
@@ -76,7 +76,7 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
         </Flex>
       )}
       <Flex justifyContent="flex-start">
-        <Link external href={bscScanAddress} bold={false}>
+        <Link external href={bscScanAddress} bold={false} color="contrast">
           View on Matic Explorer
         </Link>
       </Flex>

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ChevronDownIcon, ChevronUpIcon, Text } from '@pancakeswap-libs/uikit'
+import { ChevronDownIcon, ChevronUpIcon, Text } from '@orcinuslabs/uikit'
 
 export interface ExpandableSectionButtonProps {
   onClick?: () => void
@@ -14,14 +14,14 @@ const Wrapper = styled.div`
   cursor: pointer;
 
   svg {
-    fill: ${({ theme }) => theme.colors.primary};
+    fill: ${({ theme }) => theme.colors.textSubtle};
   }
 `
 
 const ExpandableSectionButton: React.FC<ExpandableSectionButtonProps> = ({ onClick, expanded }) => {
   return (
     <Wrapper aria-label="Hide or show expandable content" role="button" onClick={() => onClick()}>
-      <Text color="primary" bold>
+      <Text color="textSubtle" bold>
         {expanded ? 'Hide' : 'Details'}
       </Text>
       {expanded ? <ChevronUpIcon /> : <ChevronDownIcon />}

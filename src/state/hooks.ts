@@ -11,6 +11,7 @@ const ZERO = new BigNumber(0)
 export const useFetchPublicData = () => {
   const dispatch = useDispatch()
   const { slowRefresh } = useRefresh()
+
   useEffect(() => {
     dispatch(fetchFarmsPublicDataAsync())
   }, [dispatch, slowRefresh])

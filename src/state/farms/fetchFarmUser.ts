@@ -16,6 +16,7 @@ export const fetchFarmUserAllowances = async (account: string) => {
   })
 
   const rawLpAllowances = await multicall(erc20ABI, calls)
+  console.log("fetchFarmsUser multicall1")
   const parsedLpAllowances = rawLpAllowances.map((lpBalance) => {
     return new BigNumber(lpBalance).toJSON()
   })
@@ -33,6 +34,7 @@ export const fetchFarmUserTokenBalances = async (account: string) => {
   })
 
   const rawTokenBalances = await multicall(erc20ABI, calls)
+  console.log("fetchFarmsUser multicall2")
   const parsedTokenBalances = rawTokenBalances.map((tokenBalance) => {
     return new BigNumber(tokenBalance).toJSON()
   })
@@ -51,6 +53,7 @@ export const fetchFarmUserStakedBalances = async (account: string) => {
   })
 
   const rawStakedBalances = await multicall(masterchefABI, calls)
+  console.log("fetchFarmsUser multicall3")
   const parsedStakedBalances = rawStakedBalances.map((stakedBalance) => {
     return new BigNumber(stakedBalance[0]._hex).toJSON()
   })
@@ -69,6 +72,7 @@ export const fetchFarmUserEarnings = async (account: string) => {
   })
 
   const rawEarnings = await multicall(masterchefABI, calls)
+  console.log("fetchFarmsUser multicall4")
   const parsedEarnings = rawEarnings.map((earnings) => {
     return new BigNumber(earnings).toJSON()
   })

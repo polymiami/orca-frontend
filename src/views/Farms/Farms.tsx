@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import BigNumber from 'bignumber.js'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { provider } from 'web3-core'
-import { Image, Heading } from '@pancakeswap-libs/uikit'
+import { Image, Heading } from '@orcinuslabs/uikit'
 import { BLOCKS_PER_YEAR, ORCA_PER_BLOCK, ORCA_POOL_PID } from 'config'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
@@ -108,7 +108,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
       >
         {tokenMode ? 'POOLS' : 'FARMS'}
       </h1>
-      <Heading as="h1" size="md" color="primary" mb="50px" style={{ fontFamily: "Codystar, cursive", textAlign: 'center' }}>
+      <Heading as="h1" size="md" color="textSubtle" mb="50px" style={{ fontFamily: "Codystar, cursive", textAlign: 'center' }}>
         {
           tokenMode ?
             'Stake tokens to earn $ORCA'
@@ -116,7 +116,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
           'Stake LP tokens to earn $ORCA'
         }
       </Heading>
-      <Heading as="h2" size="md" color="secondary" mb="50px" style={{ fontFamily: "Codystar, cursive", textAlign: 'center' }}>
+      <Heading as="h2" size="md" color="textSubtle" mb="50px" style={{ fontFamily: "Codystar, cursive", textAlign: 'center' }}>
         Deposit Fees: 50% buyback and donate, 50% allocated to treasury wallet
       </Heading>
       <FarmTabButtons stakedOnly={stakedOnly} setStakedOnly={setStakedOnly}/>

@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
-import { Heading, Card, CardBody, Flex, ArrowForwardIcon, Skeleton } from '@pancakeswap-libs/uikit'
+import { Heading, Card, CardBody, Flex, ArrowForwardIcon, Skeleton } from '@orcinuslabs/uikit'
 import max from 'lodash/max'
 import { NavLink } from 'react-router-dom'
 import BigNumber from 'bignumber.js'
@@ -51,7 +51,7 @@ const EarnAPRCard = () => {
                     }
 
                     if (farm.quoteTokenSymbol === QuoteToken.ZERO) {
-                        console.log("EarnAPRCard", )
+                        // console.log("EarnAPRCard", )
                         totalValue = totalValue.times(orcaPrice);
                         // console.log("EarnAPRCard", "\n\ntotalValueUpdated_ZERO", totalValue.toString())
                     }
@@ -75,14 +75,14 @@ const EarnAPRCard = () => {
                     <Heading color="contrast" size="lg">
                         Earn up to
                     </Heading>
-                    <CardMidContent color="secondary">
+                    <CardMidContent color="textSubtle">
                         {highestApr ? `${Number(highestApr.apy.toNumber() * 100).toFixed(2)}% ${'APR'}` : <Skeleton animation="pulse" variant="rect" height="44px" />}
                     </CardMidContent>
                     <Flex justifyContent="space-between">
                         <Heading color="contrast" size="lg">
                             in Farms
                         </Heading>
-                        <ArrowForwardIcon mt={30} color="primary" />
+                        <ArrowForwardIcon mt={30} color="contrast" />
                     </Flex>
                 </CardBody>
             </NavLink>

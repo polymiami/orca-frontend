@@ -1,8 +1,8 @@
 import React from 'react'
-import { Tag, VerifiedIcon, CommunityIcon, BinanceIcon } from '@pancakeswap-libs/uikit'
+import { Tag, VerifiedIcon, CommunityIcon, BinanceIcon } from '@orcinuslabs/uikit'
 
 const NoFeeTag = () => (
-  <Tag variant="success" outline startIcon={<VerifiedIcon />}>
+  <Tag variant="textSubtle" outline startIcon={<VerifiedIcon />}>
     No Fees
   </Tag>
 )

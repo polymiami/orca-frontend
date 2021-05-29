@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Heading, Card, CardBody, Flex, ArrowForwardIcon } from '@pancakeswap-libs/uikit'
+import { Heading, Card, CardBody, Flex, ArrowForwardIcon } from '@orcinuslabs/uikit'
 import { NavLink } from 'react-router-dom'
 // import { useTranslation } from 'contexts/Localization'
 
@@ -29,10 +29,10 @@ const WinCard = () => {
     <StyledFarmStakingCard>
       <NavLink exact activeClassName="active" to="/buy" id="lottery-pot-cta">
         <CardBody>
-          <CardMidContent color="secondary">Buy ORCA!</CardMidContent>
+          <CardMidContent color="contrast">Buy ORCA!</CardMidContent>
           <Flex justifyContent="space-between">
             <Heading color="contrast" size="lg" />
-            <ArrowForwardIcon mt={30} color="primary" />
+            <ArrowForwardIcon mt={30} color="contrast" />
           </Flex>
         </CardBody>
       </NavLink>
