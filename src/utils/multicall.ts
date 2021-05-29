@@ -19,7 +19,7 @@ const multicall = async (abi: any[], calls: Call[]) => {
   const { returnData } = await multi.methods.aggregate(calldata).call()
   const res = returnData.map((call, i) => itf.decodeFunctionResult(calls[i].name, call))
 
-  console.log("multicall")
+  // console.log("multicall")
 
   return res
 }

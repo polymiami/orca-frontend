@@ -57,7 +57,7 @@ const fetchFarms = async () => {
         quoteTokenDecimals
       ] = await multicall(erc20, calls)
   
-      console.log("fetchFarms multicall1")
+      // console.log("fetchFarms multicall1")
 
     
 
@@ -117,7 +117,7 @@ const fetchFarms = async () => {
         },
       ])
 
-      console.log("fetchFarms multicall2")
+      // console.log("fetchFarms multicall2")
 
       const allocPoint = new BigNumber(info.allocPoint._hex)
       const poolWeight = allocPoint.div(new BigNumber(totalAllocPoint))
