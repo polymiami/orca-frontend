@@ -1821,6 +1821,17 @@
   dependencies:
     mkdirp "^1.0.4"
 
+"@orcinuslabs/uikit@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@orcinuslabs/uikit/-/uikit-1.0.0.tgz#4d8c12595e1e1e6d3ce639640d95ad208f18e91a"
+  integrity sha512-8S2H2gRaOfqWu8xI9Nn9PPS3SJg/Rs2EV9ufcTpL/ZmbNa/WAvyO0WQw0k85Z1NzHZXg9IqfEjvyuMJxNcRfCA==
+  dependencies:
+    "@types/lodash" "^4.14.162"
+    "@types/styled-system" "^5.1.10"
+    lodash "^4.17.20"
+    react-transition-group "^4.4.1"
+    styled-system "^5.1.5"
+
 "@pancakeswap-libs/eslint-config-pancake@1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@pancakeswap-libs/eslint-config-pancake/-/eslint-config-pancake-1.0.0.tgz#da5c17842d1cb0d575bca3de0c9404386c386151"
