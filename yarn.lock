@@ -1836,10 +1836,10 @@
   dependencies:
     mkdirp "^1.0.4"
 
-"@orcinuslabs/uikit@^1.0.10":
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/@orcinuslabs/uikit/-/uikit-1.0.10.tgz#7ab22ea456cc495ac15f1e348b335d65c2afd45b"
-  integrity sha512-clYqGYIANFERAA5qJ6ttSm6a3BiwOx1N4UQu5+lM++ywxdA39pTX2UGKPJnEQ4xRzQffVe3EHJ7FIi014h3R4g==
+"@orcinuslabs/uikit@^1.0.14":
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/@orcinuslabs/uikit/-/uikit-1.0.14.tgz#57a78284745624a52c972eaddb19f673ca227bf3"
+  integrity sha512-MKqschQe62rEceTw39H3pqY4k9WFw3U8LU7gFqwOlAy/OwecPOQA4U2+DO+p0cMU2PF8aslJ3MYiBMFewmoCRQ==
   dependencies:
     "@types/lodash" "^4.14.162"
     "@types/styled-system" "^5.1.10"
