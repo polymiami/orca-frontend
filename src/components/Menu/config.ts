@@ -7,9 +7,18 @@ const config: MenuEntry[] = [
     href: '/',
   },
   {
-    label: 'Buy ORCA',
+    label: 'Trade',
     icon: 'TradeIcon',
-    href: 'https://quickswap.exchange/#/swap?outputCurrency=0xC22dA91b0eaa33B88f67F543460E56f789ade50b'
+    items: [
+      {
+        label: 'Buy',
+        href: '/buy',
+      },
+      {
+        label: 'Liquidity',
+        href: '/liquidity',
+      }
+    ],
   },
   {
     label: 'Farms',

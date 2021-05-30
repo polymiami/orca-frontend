@@ -7,6 +7,7 @@ import { useFetchPublicData } from 'state/hooks'
 import GlobalStyle from './style/Global'
 import Menu from './components/Menu'
 import PageLoader from './components/PageLoader'
+// import Liquidity from './views/Liquidity'
 
 // Route-based code splitting
 // Only pool is included in the main bundle because of it's the most visited page'
@@ -14,6 +15,7 @@ const Home = lazy(() => import('./views/Home'))
 const Farms = lazy(() => import('./views/Farms'))
 const NotFound = lazy(() => import('./views/NotFound'))
 const Buy = lazy(() => import('./views/Buy'))
+const Liquidity = lazy(() => import('./views/Liquidity'))
 
 // This config is required for number formating
 BigNumber.config({
@@ -49,6 +51,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/buy">
               <Buy />
+            </Route>
+            <Route path="/liquidity">
+              <Liquidity />
             </Route>
             <Route component={NotFound} />
           </Switch>
