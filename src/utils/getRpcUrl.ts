@@ -4,16 +4,16 @@ import random from 'lodash/random'
 const nodes = [process.env.REACT_APP_NODE_1, process.env.REACT_APP_NODE_2, process.env.REACT_APP_NODE_3]
 
 /*
- * Split 60/40 between Matic Vigil/Infura to use up entire allotment 
- * of free tiers. 
+ * Split 88/12 between Matic Vigil/Infura to use up entire allotment 
+ * of free & paid tiers. 
  * 
- * Free Tiers:
+ * Tiers:
  * ============
- * Matic Vigil  -> 150,000 requests/day (60%)
- * Infura       -> 100,000 requests/day (40%)
+ * Infura       -> 1,100,000 requests/day (88%)
+ * Matic Vigil  -> 150,000 requests/day (12%)
  */
 const getNodeUrl = () => {
-  if (Math.random() < 0.6) {
+  if (Math.random() < 0.88) {
     return nodes[0]  
   }
   return nodes[1]
