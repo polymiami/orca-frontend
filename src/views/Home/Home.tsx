@@ -93,7 +93,7 @@ const Home: React.FC = () => {
                 <h1 
                   style={{  fontFamily: "Codystar, cursive", 
                             fontSize: "96px", 
-                            background: "-webkit-linear-gradient(#233142, #79618e)",
+                            background: isDark ? "-webkit-linear-gradient(#79618e, #354a63)" : "-webkit-linear-gradient(#233142, #79618e)",
                             WebkitBackgroundClip: "text",
                             WebkitTextFillColor: "transparent",
                             paddingTop: "25px", 

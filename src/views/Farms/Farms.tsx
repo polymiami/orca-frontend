@@ -16,6 +16,7 @@ import useI18n from 'hooks/useI18n'
 import FarmCard, { FarmWithStakedValue } from './components/FarmCard/FarmCard'
 import FarmTabButtons from './components/FarmTabButtons'
 import Divider from './components/Divider'
+import useTheme from '../../hooks/useTheme'
 
 export interface FarmsProps{
   tokenMode?: boolean
@@ -29,6 +30,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const maticPrice = usePriceMaticUsdc()        // MATIC-USDT PRICE
   const { account, ethereum }: { account: string; ethereum: provider } = useWallet()
   const {tokenMode} = farmsProps;
+  const { isDark, toggleTheme } = useTheme()
 
   const dispatch = useDispatch()
   const { fastRefresh } = useRefresh()
@@ -99,7 +101,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
       <h1 
         style={{  fontFamily: "Codystar, cursive", 
                   fontSize: "96px", 
-                  background: "-webkit-linear-gradient(#233142, #79618e)",
+                  background: isDark ? "-webkit-linear-gradient(#79618e, #354a63)" : "-webkit-linear-gradient(#233142, #79618e)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   paddingTop: "25px", 
