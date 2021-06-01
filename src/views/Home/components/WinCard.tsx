@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Heading, Card, CardBody, Flex, ArrowForwardIcon } from '@orcinuslabs/uikit'
 import { NavLink } from 'react-router-dom'
-// import { useTranslation } from 'contexts/Localization'
+
 
 const StyledFarmStakingCard = styled(Card)`
   margin-left: auto;
@@ -23,8 +23,6 @@ const CardMidContent = styled(Heading).attrs({ size: 'xl' })`
   line-height: 44px;
 `
 const WinCard = () => {
-//   const { t } = useTranslation()
-
   return (
     <StyledFarmStakingCard>
       <NavLink exact activeClassName="active" to="/buy" id="lottery-pot-cta">

@@ -13,6 +13,7 @@ import TwitterCard from './components/TwitterCard'
 import EarnAPRCard from './components/EarnAPRCard'
 import EarnAssetCard from './components/EarnAssetCard'
 import WinCard from './components/WinCard'
+import Chart from './components/Chart'
 import useTheme from '../../hooks/useTheme'
 
 const Hero = styled.div`
@@ -116,7 +117,8 @@ const Home: React.FC = () => {
                 <CTACards>
                     <EarnAPRCard />             {/* Earn up to xx% */}
                     <EarnAssetCard />           {/* Stake $ORCA in Pools */}
-                    <WinCard />                 {/* Buy $ORCA */}
+                    <Chart />
+                    {/* <WinCard />                 Buy $ORCA */}
                 </CTACards>
                 <Cards>
                     <OrcaStats />               {/* $ORCA statistics */}
