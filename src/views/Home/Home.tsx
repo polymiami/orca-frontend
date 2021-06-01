@@ -112,17 +112,17 @@ const Home: React.FC = () => {
             <div style={{ marginTop: "50px" }}>
                 <Cards>
                     <FarmStakingCard />         {/* Farms & Staking */}
-                    <TwitterCard />             {/* Annoucements */}
+                    <Chart />
                 </Cards>
                 <CTACards>
                     <EarnAPRCard />             {/* Earn up to xx% */}
                     <EarnAssetCard />           {/* Stake $ORCA in Pools */}
-                    <Chart />
+                    <TotalValueLockedCard />    {/* Total value locked */}
                     {/* <WinCard />                 Buy $ORCA */}
                 </CTACards>
                 <Cards>
                     <OrcaStats />               {/* $ORCA statistics */}
-                    <TotalValueLockedCard />    {/* Total value locked */}
+                    <TwitterCard />             {/* Annoucements */}
                 </Cards>
             </div>
         </Page>
